@@ -1,36 +1,81 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import useStyles from './FormStyles';
 
-const Form = () => {
+import  { createAListing } from '../../actions/listings'
+
+const Form = ({ currentId }) => {
     
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const [listingData, setListingData] = useState ({
+        title: '', 
+        price: '',  
+        condition: '', 
+        description: '', 
+        tags: '', 
+        selectedFile: '',
+    });
+
+    const listing = useSelector((state) => (currentId ? state.listings.find((listing) => listing._id === currentId) : null ));
+
+    useEffect(() => {
+        if(listing) setListingData(listing);
+    }, [listing]);
+
+    const clear = () => {
+        setListingData({ title: '', condition: '', price: '', description: '', tags: '', selectedFile: '' });
+    };
+
+    
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log('publish button clicked');
+        console.log(listingData);
+        dispatch(createAListing( {...listingData } ))
+        clear();
+    };
+
 
     return (
         <Paper className={classes.paper} >
-            <form className={`${classes.root} ${classes.form}`} >
-
-                <Typography variant='h6'>  Create a listing </Typography>
+            <form 
+                autoComplete="off" 
+                noValidate 
+                className={`
+                    ${classes.root}
+                    ${classes.form}
+                `} 
+                onSubmit={handleSubmit}
+            >
+                <Typography variant='h6'> Create a Listing </Typography>
                 
                 <TextField 
                     name="title"
                     variant="outlined"
                     label="Listing title"
                     fullWidth
+                    value={listingData.title}
                     required
+                    onChange={(event) => setListingData({ ...listingData, title: event.target.value })}
                 />
                 <TextField 
                     name="price"
                     variant="outlined"
                     label="Asking price"
                     fullWidth
+                    value={listingData.price}
+                    onChange={(event) => setListingData({ ...listingData, price: event.target.value })}
                 />
                 <TextField 
                     name="condition"
                     variant="outlined"
                     label="Condition"
                     fullWidth
+                    value={listingData.condition}
+                    onChange={(event) => setListingData({ ...listingData, condition: event.target.value })}
                 />
 
                 <TextField 
@@ -38,6 +83,8 @@ const Form = () => {
                     variant="outlined"
                     label="Description"
                     fullWidth
+                    value={listingData.description}
+                    onChange={(event) => setListingData({ ...listingData, description: event.target.value })}
                 />
 
                 <TextField 
@@ -45,16 +92,18 @@ const Form = () => {
                     variant="outlined"
                     label="Tags"
                     fullWidth
+                    value={listingData.tags}
+                    onChange={(event) => setListingData({ ...listingData, tags: event.target.value.split(',') })}
                 />
-                <div>
+                <div className={classes.fileInput}>
                     <FileBase
-                        className={classes.fileInput}
                         type="file"
                         multiple={false}
+                        onDone={({base64}) => setListingData({ ...listingData, selectedFile: base64 })}
                     >
                     </FileBase>
                 </div>
-                <Button className={classes.mainButton} variant="contained"  color="primary"  size="large" type="submit" fullWidth > Publish </Button>
+                <Button className={classes.mainButton} variant="contained" color="primary"  size="large" type="submit" fullWidth > Publish  </Button>
             </form>
         </Paper>
     );

@@ -37,7 +37,6 @@ const plushbabytheme = createTheme({
 
 });
 
-
 const App = () =>  {
 
     const [isOpen, setIsOpen] = useState(false)
@@ -54,10 +53,10 @@ const App = () =>  {
                 <NavigationBar toggleFlyout={toggleFlyout} />
                 <Routes>
                     <Route path='/' element={ <Home/> } />
-                    <Route path='/posts' element={ <Home/> } />
+                    <Route path='/listings' element={ <Home/> } />
                     <Route path='/auth' element={ <UserAuthenticate/> } />
                     <Route path='/newlisting' element={ <NewListing/> } />
-                    <Route path='/posts/detailedpage' element={ <DetailedPage/> } />
+                    <Route path='/listings/:id' element={ <DetailedPage/> } />
                 </Routes>
                 <Footer />
             </Router>

@@ -11,7 +11,6 @@ export default makeStyles(() => ({
         display: 'grid',
         alignItems: 'center',
         top: '0',
-        left: '-100',
         boxShadow: '1px 1px 10px grey',
         opacity: '0',
         left: '-100%',
