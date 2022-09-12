@@ -10,22 +10,36 @@ const Posts = () => {
 
     return (
         <Grid className={ classes.container } container alignItems="stretch" spacing={3}  >
-            <Grid item xs={6} sm={6} md={4} lg={4} >
+            <Grid item xs={6} sm={6} md={3}  >
                 <Post />
             </Grid>
-            <Grid item xs={6} sm={6} md={4} lg={4} >
+
+            {/* just for demo. these will be added dynamically */}
+            <Grid item xs={6} sm={6} md={3}  >
                 <Post />
             </Grid>
-            <Grid item xs={6} sm={6} md={4} lg={4} >
+            <Grid item xs={6} sm={6} md={3}  >
                 <Post />
             </Grid>
-            <Grid item xs={6} sm={6} md={4} lg={4} >
+            <Grid item xs={6} sm={6} md={3}  >
                 <Post />
             </Grid>
-            <Grid item xs={6} sm={6} md={4} lg={4} >
+            <Grid item xs={6} sm={6} md={3}  >
                 <Post />
             </Grid>
-                
+            <Grid item xs={6} sm={6} md={3}  >
+                <Post />
+            </Grid>
+            <Grid item xs={6} sm={6} md={3}  >
+                <Post />
+            </Grid>
+            <Grid item xs={6} sm={6} md={3}  >
+                <Post />
+            </Grid>
+            <Grid item xs={6} sm={6} md={3}  >
+                <Post />
+            </Grid>
+            {/* just for demo. these will be added dynamically */}
         </Grid>
     );
 };

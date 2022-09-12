@@ -21,6 +21,7 @@ const NavigationBar = ({toggleFlyout}) => {
             </div>
 
             <Toolbar className={classes.toolbar} >
+                <Typography to="/newlisting" component={Link} > Create a New Listing </Typography>
                 <div className={classes.profile}>
                     <div className={classes.profileName}>
                         <Typography variant='h6' >  User Name </Typography>

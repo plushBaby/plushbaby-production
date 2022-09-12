@@ -4,6 +4,7 @@ import FLyoutNav from './components/Navigation/FlyoutNav';
 import NavigationBar from './components/Navigation/NavigationBar';
 import Home from './components/Pages/Home/Home';
 import UserAuthenticate from './components/Pages/Accounts/UserAuthenticate';
+import NewListing from './components/Pages/NewListing/NewListing';
 import DetailedPage from './components/Pages/DetailedPage/DetailedPage';
 import Footer from './components/Footer/Footer';
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
@@ -55,6 +56,7 @@ const App = () =>  {
                     <Route path='/' element={ <Home/> } />
                     <Route path='/posts' element={ <Home/> } />
                     <Route path='/auth' element={ <UserAuthenticate/> } />
+                    <Route path='/newlisting' element={ <NewListing/> } />
                     <Route path='/posts/detailedpage' element={ <DetailedPage/> } />
                 </Routes>
                 <Footer />

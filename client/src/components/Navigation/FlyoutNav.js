@@ -16,9 +16,9 @@ const FLyoutNav = ({isOpen, toggleFlyout}) => {
                 </Icon>
                 </Button>
                 
-                <Typography variant='h5' align='center' component={Link} to="/"> Hi, Account holder name </Typography>
-                <MenuItem>  <Typography to="discover" onClick={toggleFlyout} > Create a New Listing </Typography> </MenuItem>
-                <MenuItem>  <Typography to="services" onClick={toggleFlyout} > View my Listings </Typography> </MenuItem>
+                <Typography variant='h5' align='useraccount' component={Link} to="/"> Hi, Account holder name </Typography>
+                <MenuItem>  <Typography to="/newlisting" component={Link} onClick={toggleFlyout} > Create a New Listing </Typography> </MenuItem>
+                <MenuItem>  <Typography to="userlistings" component={Link}  onClick={toggleFlyout} > View my Listings </Typography> </MenuItem>
                 <Button  color="secondary" component={Link} variant="contained" to="/auth"> Log Out </Button>
             </Container>
         </aside>
