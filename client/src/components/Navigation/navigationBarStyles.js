@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles((theme) => ({
+export  default makeStyles((theme) => ({
   appBar: {
     display: 'flex',
     flexDirection: 'row',
@@ -8,9 +8,6 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '10px 50px',
     background: theme.palette.primary.main,
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-    },
   },
   brandContainer: {
     display: 'flex',
@@ -22,7 +19,6 @@ export default makeStyles((theme) => ({
   },
 
   heading: {
-    color: theme.palette.primary.main,
     color: 'white',
     textDecoration: 'none',
     fontSize: '1.5em',
@@ -54,6 +50,15 @@ export default makeStyles((theme) => ({
 
   mainButton: {
     borderRadius: '48px',
+  }, 
+  mobileIcon: {
+    display: 'none',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
+      cursor: 'pointer',
+      color: 'white',
+    },
   }
-  
 }))
+

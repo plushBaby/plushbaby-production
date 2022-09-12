@@ -1,21 +1,23 @@
-import React from 'react';
-import { AppBar, Container, Typography, Toolbar, Button, Avatar } from '@material-ui/core';
+import React, {useState, useEffect} from 'react';
+import { AppBar, Typography, Toolbar, Button, Avatar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Menu from '@material-ui/icons/Menu';
 import useStyles from './navigationBarStyles';
 
-
-
-const NavigationBar = () => {
-    
+const NavigationBar = ({toggleFlyout}) => {
     const classes = useStyles();
 
     return (
         <AppBar className={classes.appBar} position='static' color='inherit'>
+            <div className={classes.mobileIcon} onClick={toggleFlyout}>
+                <Menu fontSize='large'/>
+            </div>
+
             <div className={classes.brandContainer}>
                 <Avatar className={classes.logo}>
                     P
                 </Avatar>
-                <Typography variant='h2' align='center' className={classes.heading} component={Link} to="/"> Plush Babies Marketplace </Typography>
+                <Typography variant='h2' align='center' className={classes.heading} component={Link} to="/"> Plush Babies </Typography>
             </div>
 
             <Toolbar className={classes.toolbar} >
