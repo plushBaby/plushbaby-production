@@ -21,11 +21,10 @@ const NavigationBar = ({toggleFlyout}) => {
             </div>
 
             <Toolbar className={classes.toolbar} >
-                <Typography to="/newlisting" component={Link} > Create a New Listing </Typography>
-                <div className={classes.profile}>
-                    <div className={classes.profileName}>
-                        <Typography variant='h6' >  User Name </Typography>
-                    </div>
+                
+                <div className={classes.link}>
+                    <Typography to="/newlisting" component={Link} variant='h6' className={classes.navlink}> Create a New Listing </Typography>
+                    <Typography variant='h6' className={classes.navlink}>  User Name </Typography>
                     <Button className={classes.mainButton} color="secondary" component={Link} variant="contained" to="/auth"> Log In </Button>
                 </div>
             </Toolbar>

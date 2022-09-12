@@ -32,25 +32,31 @@ export  default makeStyles((theme) => ({
       width: 'auto',
     },
   },
-  profile: {
+
+  link: {
     display: 'flex',
     justifyContent: 'space-between',
     width: '400px',
-    color: 'white',
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
       marginTop: 20,
       justifyContent: 'center',
+      display: 'none',
     },
   },
-  profileName: {
+
+  navlink: {
+    color: 'white',
+    textDecoration: 'none',
     display: 'flex',
     columnGap: '10px',
+    lineHeight: '1.8',
   },
 
   mainButton: {
     borderRadius: '48px',
   }, 
+
   mobileIcon: {
     display: 'none',
 

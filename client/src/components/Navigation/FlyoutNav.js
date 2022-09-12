@@ -11,9 +11,9 @@ const FLyoutNav = ({isOpen, toggleFlyout}) => {
         <aside  isOpen={isOpen} onClick={toggleFlyout} className={`${classes.FlyOutNavContainer} ${isOpen ? `${classes.isOpen}` : ''}`}>
             <Container>
                 <Button onClick={toggleFlyout}>
-                <Icon >
-                    <Close />
-                </Icon>
+                    <Icon >
+                        <Close />
+                    </Icon>
                 </Button>
                 
                 <Typography variant='h5' component={Link} to="/"> Hi, Account holder name </Typography>

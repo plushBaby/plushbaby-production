@@ -1,4 +1,4 @@
-import { FETCH_ALL, FETCH_ONE, CREATE} from '../constants/actionTypes';
+import { FETCH_ALL, FETCH_ONE, CREATE, UPDATE} from '../constants/actionTypes';
 
 export default ( state = { listings: [] } , action ) => {
     switch (action.type) {
@@ -11,6 +11,9 @@ export default ( state = { listings: [] } , action ) => {
 
         case CREATE:
             return { ...state, listings: action.payload };
+
+        case UPDATE:
+            return { ...state, listings: state.listings.map((listing) => listing._id === action.payload._id ? action.payload : listing) };
 
         default:
             return state;

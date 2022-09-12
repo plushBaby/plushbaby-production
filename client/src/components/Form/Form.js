@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import useStyles from './FormStyles';
 
-import  { createAListing } from '../../actions/listings'
+import  { createAListing, updateListing } from '../../actions/listings'
 
-const Form = ({ currentId }) => {
-    
+const Form = ({ currentId, setCurrentId }) => {
+
     const classes = useStyles();
     const dispatch = useDispatch();
     const [listingData, setListingData] = useState ({
@@ -18,6 +18,7 @@ const Form = ({ currentId }) => {
         tags: '', 
         selectedFile: '',
     });
+    
 
     const listing = useSelector((state) => (currentId ? state.listings.find((listing) => listing._id === currentId) : null ));
 
@@ -26,6 +27,7 @@ const Form = ({ currentId }) => {
     }, [listing]);
 
     const clear = () => {
+        setCurrentId(null);
         setListingData({ title: '', condition: '', price: '', description: '', tags: '', selectedFile: '' });
     };
 
@@ -34,78 +36,82 @@ const Form = ({ currentId }) => {
         event.preventDefault();
         console.log('publish button clicked');
         console.log(listingData);
-        dispatch(createAListing( {...listingData } ))
-        clear();
+        if(currentId === null) { 
+            dispatch(createAListing( {...listingData } ))
+            
+        } else {
+            dispatch(updateListing( currentId, {...listingData } ));
+        }
     };
 
 
     return (
-        <Paper className={classes.paper} >
-            <form 
-                autoComplete="off" 
-                noValidate 
-                className={`
-                    ${classes.root}
-                    ${classes.form}
-                `} 
-                onSubmit={handleSubmit}
-            >
-                <Typography variant='h6'> Create a Listing </Typography>
-                
-                <TextField 
-                    name="title"
-                    variant="outlined"
-                    label="Listing title"
-                    fullWidth
-                    value={listingData.title}
-                    required
-                    onChange={(event) => setListingData({ ...listingData, title: event.target.value })}
-                />
-                <TextField 
-                    name="price"
-                    variant="outlined"
-                    label="Asking price"
-                    fullWidth
-                    value={listingData.price}
-                    onChange={(event) => setListingData({ ...listingData, price: event.target.value })}
-                />
-                <TextField 
-                    name="condition"
-                    variant="outlined"
-                    label="Condition"
-                    fullWidth
-                    value={listingData.condition}
-                    onChange={(event) => setListingData({ ...listingData, condition: event.target.value })}
-                />
+        
+        <form 
+            autoComplete="off" 
+            noValidate 
+            className={`
+                ${classes.root}
+                ${classes.form}
+            `} 
+            onSubmit={handleSubmit}
+        >
+            <Typography variant='h6'> Create a Listing </Typography>
+            
+            <TextField 
+                name="title"
+                variant="outlined"
+                label="Listing title"
+                fullWidth
+                value={listingData.title}
+                required
+                onChange={(event) => setListingData({ ...listingData, title: event.target.value })}
+            />
+            <TextField 
+                name="price"
+                variant="outlined"
+                label="Asking price"
+                fullWidth
+                value={listingData.price}
+                onChange={(event) => setListingData({ ...listingData, price: event.target.value })}
+            />
+            <TextField 
+                name="condition"
+                variant="outlined"
+                label="Condition"
+                fullWidth
+                value={listingData.condition}
+                onChange={(event) => setListingData({ ...listingData, condition: event.target.value })}
+            />
 
-                <TextField 
-                    name="description"
-                    variant="outlined"
-                    label="Description"
-                    fullWidth
-                    value={listingData.description}
-                    onChange={(event) => setListingData({ ...listingData, description: event.target.value })}
-                />
+            <TextField 
+                name="description"
+                variant="outlined"
+                label="Description"
+                fullWidth
+                value={listingData.description}
+                onChange={(event) => setListingData({ ...listingData, description: event.target.value })}
+            />
 
-                <TextField 
-                    name="tags"
-                    variant="outlined"
-                    label="Tags"
-                    fullWidth
-                    value={listingData.tags}
-                    onChange={(event) => setListingData({ ...listingData, tags: event.target.value.split(',') })}
-                />
-                <div className={classes.fileInput}>
-                    <FileBase
-                        type="file"
-                        multiple={false}
-                        onDone={({base64}) => setListingData({ ...listingData, selectedFile: base64 })}
-                    >
-                    </FileBase>
-                </div>
-                <Button className={classes.mainButton} variant="contained" color="primary"  size="large" type="submit" fullWidth > Publish  </Button>
-            </form>
-        </Paper>
+            <TextField 
+                name="tags"
+                variant="outlined"
+                label="Tags"
+                fullWidth
+                value={listingData.tags}
+                onChange={(event) => setListingData({ ...listingData, tags: event.target.value.split(',') })}
+            />
+            <div className={classes.fileInput}>
+                <FileBase
+                    type="file"
+                    multiple={false}
+                    onDone={({base64}) => setListingData({ ...listingData, selectedFile: base64 })}
+                >
+                </FileBase>
+            </div>
+            <Button className={classes.mainButton} variant="contained" color="primary"  size="large" type="submit" fullWidth > Publish  </Button>
+        </form>
+        
     );
 }
 

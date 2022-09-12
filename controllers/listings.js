@@ -40,4 +40,17 @@ export const createAListing = async (req, res) => {
     }
 }
 
+export const updateListing = async (req, res) => {
+    const { id: _id } = req.params;
+    const listing = req.body;
+
+    if(!mongoose.Types.ObjectId.isValid(_id)) 
+    return res.status(404).send(`No listing with the id: ${_id}`);
+
+    const updateListing =  await ListingData.findByIdAndUpdate(_id, listing, { new: true });
+    res.json(updateListing);
+}
+
+
+
 export default router;
