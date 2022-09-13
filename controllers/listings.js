@@ -1,5 +1,5 @@
 import express from 'express';
-
+import mongoose from 'mongoose';
 import ListingData from '../models/listingData.js';
 
 const router = express.Router();
@@ -47,8 +47,21 @@ export const updateListing = async (req, res) => {
     if(!mongoose.Types.ObjectId.isValid(_id)) 
     return res.status(404).send(`No listing with the id: ${_id}`);
 
-    const updateListing =  await ListingData.findByIdAndUpdate(_id, listing, { new: true });
+    const updateListing =  await ListingData.findByIdAndUpdate(_id, {...listing, _id}, { new: true });
     res.json(updateListing);
+}
+
+export const deleteListing = async (req, res) => {
+    const { id } = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No listing with the id: ${id}`);
+
+    try {
+        await ListingData.findByIdAndRemove(id);
+        res.json({ message: 'Listing deleted' });
+        
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
 }
 
 

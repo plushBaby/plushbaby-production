@@ -7,10 +7,6 @@ const Listing = ({ listing , setCurrentId  }) => {
     
     const classes = useStyles();
     const navigate = useNavigate();
-    
-    const doSomething = () => {
-      console.log("delete button was clicked");
-    };
 
     const openListingPage = () => {
       navigate(`/listings/${listing._id}`);
@@ -22,12 +18,10 @@ const Listing = ({ listing , setCurrentId  }) => {
       <Card className={classes.roundedCorners}>
         <CardActionArea onClick={openListingPage}>
           <CardMedia  component="img" height="200"  image={listing.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
-          <CardContent >
-            <Typography variant="h6" >  { listing.title } </Typography>
-            <Typography variant="body2" color="textSecondary"> Seller: </Typography>
-            <Typography variant="h5" component="h5" color="textPrimary"> Price: ${ listing.price }    </Typography>
-            <Typography variant="body2" color="textSecondary"> Condition: { listing.condition }   </Typography>
-            <Typography variant="body2" color="textSecondary"> Description: { listing.description }   </Typography>
+          <CardContent>
+            <Typography  className={classes.cardTitle} > <b>   { listing.title } </b>   </Typography>
+            <Typography variant="body2"  gutterBottom> { listing.subtitle } </Typography>
+            <Typography variant="body1"  component="p" color="textPrimary" gutterBottom> <b> Price: ${ listing.price }  </b> </Typography>
             <Typography variant="body2" color="textSecondary"> Listed: Time created from now  </Typography> 
           </CardContent>
         </CardActionArea>

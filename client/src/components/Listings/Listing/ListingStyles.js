@@ -9,5 +9,10 @@ export default makeStyles(() => ({
   },
   roundedCorners: {
     borderRadius: '26px',
-  }
+  },
+  cardTitle: {
+    fontSize: '14px',
+    lineHeight: 'normal',
+  },
+  
 }));

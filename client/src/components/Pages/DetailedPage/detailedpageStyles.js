@@ -19,22 +19,18 @@ export default makeStyles((theme) => ({
         margin: '20px',
         display: 'flex',
         boxSizing: 'border-box',
-        [theme.breakpoints.down('sm')]: {
-          flexWrap: 'wrap',
-          flexDirection: 'column',
-        },
-    
         [theme.breakpoints.down('xs')]: {
           margin: '20px 0',
+          display: 'block',
         },
       },
       
       section: {
         borderRadius: '20px',
         flex: 1,
-        padding: '20px 40px',
-        [theme.breakpoints.down('sm')]: {
-          padding: '10px',
+        padding: '5px 40px',
+        [theme.breakpoints.down('xs')]: {
+          padding: '5px',
         },
       },
     

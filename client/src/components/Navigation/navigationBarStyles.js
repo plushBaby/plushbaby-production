@@ -8,6 +8,9 @@ export  default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '10px 50px',
     background: theme.palette.primary.main,
+    [theme.breakpoints.down('sm')]: {
+      padding: '10px',
+    },
   },
   brandContainer: {
     display: 'flex',

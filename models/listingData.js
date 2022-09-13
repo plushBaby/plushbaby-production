@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 const listingSchema = mongoose.Schema({
     title: String,
+    subtitle: String,
     price: Number,
     condition: String,
     description: String,

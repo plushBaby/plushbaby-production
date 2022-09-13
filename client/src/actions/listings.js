@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, FETCH_ONE, UPDATE, END_LOADING } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, FETCH_ONE, UPDATE, END_LOADING , DELETE } from '../constants/actionTypes';
 import * as api from '../api/api.js';
 
 export const fetchOneListing = (id) => async (dispatch) => {
@@ -11,7 +11,6 @@ export const fetchOneListing = (id) => async (dispatch) => {
     console.log(error.message);
   }
 };
-
 
 export const fetchAllListings = () => async (dispatch) => {
     try {
@@ -45,5 +44,15 @@ export const updateListing = (id, listing) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     console.log('listing was not updated');
+  }
+};
+
+export const deleteListing = (id) => async (dispatch) => {
+  try {
+    await api.deleteListing(id);
+    dispatch({ type: DELETE, payload: id});
+    
+  } catch (error) {
+    console.log(error);
   }
 };

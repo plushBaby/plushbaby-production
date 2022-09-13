@@ -1,70 +1,87 @@
-import React, { useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import { Grid, Typography , IconButton, Grow, Container , Paper} from '@material-ui/core';
+import { Grid, Typography , IconButton, Grow, Container } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-// import Form from '../../Form/Form';
-import { fetchOneListing } from '../../../actions/listings';
+import Form from '../../Form/Form';
+import { fetchOneListing, deleteListing } from '../../../actions/listings';
 import useStyles from './detailedpageStyles';
 
 const DetailedPage = () => {
-
-    const { listing, listings, isLoading } = useSelector( (state) => state.listings);
+    const [currentId, setCurrentId] = useState(0);
+    const { listing } = useSelector( (state) => state.listings);
     const dispatch = useDispatch();
     const classes = useStyles();
     const { id } = useParams();
-    
 
     useEffect( () => {
         dispatch(fetchOneListing(id));
+        setCurrentId(id);
     }, [id ] );
 
+    const confirmDelete = () => {
+        if(window.confirm("Do you want to delete listing: " + listing.title ) === true ) {
+            dispatch(deleteListing(listing._id)) 
+            setCurrentId(null);
+        }
+    };
 
     if (!listing) {
-        console.log("No listing data found");
-        return null;
+        return null
     };
 
     return (
         <Grow in className={ classes.paper } >
-            
-            <Container>
-                <Grid className={classes.card} justifyContent='space-between' alignItems='stretch'>
-                    <Grid item md={6}  >
-                        <div className={classes.imageSection}>
-                            <img className={classes.media} src={listing.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={listing.title} />
-                        </div>
+            <Container >
+                {currentId !== null
+                    ? <> 
+                        <Grid className={classes.card}  alignItems="stretch">
+                            <Grid item sm={6} md={4} >
+                                <div className={classes.imageSection}>
+                                    <img className={classes.media} src={listing.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={listing.title} />
+                                </div>
+                            </Grid >
+                            <Grid item sm={6} md={8} >
+                                <div className={classes.section}>
+                                    <Typography variant="h5" component="h5"> <b> {listing.title} </b> </Typography>
+                                    <Typography gutterBottom variant="h6" color="textSecondary" component="h6"> <i> {listing.tags} </i> </Typography>
 
-                    </Grid >
-                    <Grid item md={10} >
-                        <div className={classes.section}>
-                            <Typography variant="h3" component="h3"> {listing.title} </Typography>
-                            <Typography gutterBottom variant="h6" color="textSecondary" component="h6"> <i> {listing.tags} </i> </Typography>
+                                    <div>
+                                        {/* only account creator will see */}
+                                        <IconButton className={classes.icons} onClick={ confirmDelete }> <DeleteIcon fontSize="small" /> </IconButton>
+                                        <IconButton className={classes.icons} > <EditIcon fontSize="small" /> </IconButton>     
+                                    </div>
 
-                            <div>
-                                <IconButton className={classes.icons} > <DeleteIcon fontSize="small" /> </IconButton>
-                                <IconButton className={classes.icons} > <EditIcon fontSize="small" /> </IconButton>     
-                            </div>
+                                    <div> <Typography variant="h5" component="h5" color="textPrimary">  ${listing.price ? listing.price : <i> Make an offer </i>} </Typography>  </div>
 
-                            <div> <Typography variant="h5" component="h5" color="textPrimary">  ${listing.price} </Typography>  </div>
+                                </div>
 
-                        </div>
+                                <div className={classes.section}>           
+                                    <div> <Typography variant="body2"  component="p"> <b> Condition:  </b> {listing.condition ? listing.condition : <i> No info provided </i>} </Typography></div>
+                                    
+                                </div> 
+                                <div className={classes.section}>
+                                    <div> <Typography variant="body2"  component="p"> <b> Description: </b> {listing.description ? listing.description : <i> No info provided </i> }    </Typography> </div>  
+                                </div>
 
-                        <div className={classes.section}>           
-                            <div> <Typography variant="body1"  component="p"> <b> Condition:  </b> {listing.condition ? listing.condition : <i> No info provided </i>} </Typography></div>
-                            <div> <Typography variant="body1"  component="p"> <b> Description: </b> {listing.description ? listing.description : <i> No info provided </i> }    </Typography> </div>
-                            <div> <Typography variant="body1"> <b> Seller: </b>  </Typography> </div>
-                            <div> <Typography variant="body1"> <b> Listed:  </b>  </Typography> </div>
-                        </div>  
+                                <div className={classes.section}> 
+                                    <div> <Typography variant="body2"> <b> Seller: </b>  </Typography> </div>
+                                    <div> <Typography variant="body2"> <b> Listed:  </b>  </Typography> </div> 
+                                </div> 
 
-                        <div className={classes.section} >
-                            <Typography variant="body1"><strong> Comments </strong></Typography>
-                            
-                        </div>              
-                    </Grid>
-                </Grid>
+                                <div className={classes.section} >
+                                    <Typography variant="body1"><strong> Comments </strong></Typography>
+                                </div>    
+                            </Grid>
+                        </Grid>
+                        < Form />
+                        
+                    </>
+                    : <> 
+                        <h1 align="center"> This listing has been deleted </h1>
+                    </>
+                }
             </Container>
         </Grow>
     )

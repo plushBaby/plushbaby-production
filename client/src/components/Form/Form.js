@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { TextField, Button, Typography } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import useStyles from './FormStyles';
@@ -12,6 +12,7 @@ const Form = ({ currentId, setCurrentId }) => {
     const dispatch = useDispatch();
     const [listingData, setListingData] = useState ({
         title: '', 
+        subtitle: '',
         price: '',  
         condition: '', 
         description: '', 
@@ -28,20 +29,19 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(null);
-        setListingData({ title: '', condition: '', price: '', description: '', tags: '', selectedFile: '' });
+        setListingData({ title: '', subtitle: '', condition: '', price: '', description: '', tags: '', selectedFile: '' });
     };
 
     
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log('publish button clicked');
-        console.log(listingData);
         if(currentId === null) { 
             dispatch(createAListing( {...listingData } ))
-            
+            window.alert("Your listing has been posted");
         } else {
             dispatch(updateListing( currentId, {...listingData } ));
         }
+        clear();
     };
 
 
@@ -56,7 +56,7 @@ const Form = ({ currentId, setCurrentId }) => {
             `} 
             onSubmit={handleSubmit}
         >
-            <Typography variant='h6'> Create a Listing </Typography>
+            <Typography variant='h6'> {currentId ? 'Editing the' : 'Start a '}  listing </Typography>
             
             <TextField 
                 name="title"
@@ -68,10 +68,19 @@ const Form = ({ currentId, setCurrentId }) => {
                 onChange={(event) => setListingData({ ...listingData, title: event.target.value })}
             />
             <TextField 
+                name="subtitle"
+                variant="outlined"
+                label="Listing sub title"
+                fullWidth
+                value={listingData.subtitle}
+                onChange={(event) => setListingData({ ...listingData, subtitle: event.target.value })}
+            />
+            <TextField 
                 name="price"
                 variant="outlined"
                 label="Asking price"
                 fullWidth
+                type="number"
                 value={listingData.price}
                 onChange={(event) => setListingData({ ...listingData, price: event.target.value })}
             />
@@ -89,6 +98,8 @@ const Form = ({ currentId, setCurrentId }) => {
                 variant="outlined"
                 label="Description"
                 fullWidth
+                multiline
+                rows={4}
                 value={listingData.description}
                 onChange={(event) => setListingData({ ...listingData, description: event.target.value })}
             />

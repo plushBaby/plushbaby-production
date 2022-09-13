@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import useStyles from './HomeStyles';
-
+// import Form from '../../Form/Form';
 import { fetchAllListings } from '../../../actions/listings';
 import Listings from '../../Listings/Listings';
 
@@ -23,7 +23,10 @@ const Home = () => {
                     <Listings setCurrentId={setCurrentId}/>
                     <h3> End of Listings </h3>
                 </Grid>
+               
             </Container>
+
+            
         </Grow>
     );
 };
