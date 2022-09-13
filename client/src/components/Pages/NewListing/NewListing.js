@@ -5,12 +5,11 @@ import Form from '../../Form/Form';
 
 const NewListing = () => {
 
-    const [currentId, setCurrentId] = useState(null);
     return (
         <Grow in>
             <section> 
                 <Container>
-                    <Form currentId={currentId} setCurrentId={setCurrentId}/>
+                    <Form />
                 </Container>
                 
             </section>

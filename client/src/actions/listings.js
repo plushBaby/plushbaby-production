@@ -28,7 +28,6 @@ export const createAListing = (listing) => async (dispatch) => {
       dispatch({ type: CREATE, payload: data });
       console.log("NEW LISTING WAS CREATED")
 
-
     } catch (error) {
       console.log(error);
       console.log('new listing was not created');

@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Typography, Toolbar, Button, Avatar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Menu from '@material-ui/icons/Menu';
+import Person from '@material-ui/icons/Person';
 import useStyles from './navigationBarStyles';
 
 const NavigationBar = ({toggleFlyout}) => {
@@ -21,12 +22,14 @@ const NavigationBar = ({toggleFlyout}) => {
             </div>
 
             <Toolbar className={classes.toolbar} >
+
+                {/*  only logged in users see */}
+                <Button className={ classes.link } variant="outlined"  onClick={toggleFlyout} >  <Person fontSize='medium'/> User Name </Button>
+                <Button to="/newlisting" className={classes.link} component={Link} color="secondary" variant="contained"> Create a New Listing </Button>
                 
-                <div className={classes.link}>
-                    <Typography to="/newlisting" component={Link} variant='h6' className={classes.navlink}> Create a New Listing </Typography>
-                    <Typography variant='h6' className={classes.navlink}>  User Name </Typography>
-                    <Button className={classes.mainButton} color="secondary" component={Link} variant="contained" to="/auth"> Log In </Button>
-                </div>
+                {/*  only public users see */}
+                <Button variant="outlined" className={classes.link} to="/auth" component={Link} > Sign In </Button> 
+                <Button variant="contained" className={classes.link} color="secondary" to="/auth" component={Link} > Sign Up </Button>
             </Toolbar>
         </AppBar>
     )

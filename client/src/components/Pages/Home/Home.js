@@ -21,12 +21,9 @@ const Home = () => {
             <Container className={ classes.container }> 
                 <Grid container justifyContent='space-between' alignItems='stretch' spacing={2} >
                     <Listings setCurrentId={setCurrentId}/>
-                    <h3> End of Listings </h3>
                 </Grid>
-               
+                <h3 align="center" > End of Listings </h3>
             </Container>
-
-            
         </Grow>
     );
 };

@@ -14,5 +14,13 @@ export default makeStyles(() => ({
     fontSize: '14px',
     lineHeight: 'normal',
   },
+
+  cardContent: {
+    height: '100px',
+    overflow: 'hidden',
+  },
+  cardActions: {
+    padding: '5px 15px',
+  }
   
 }));

@@ -10,6 +10,7 @@ const listingSchema = mongoose.Schema({
     tags: [String],
     selectedFile: String,
     name: String,
+    createdAt: {type: Date, default: new Date() },
 });
 
 const ListingData = mongoose.model('ListingData', listingSchema);

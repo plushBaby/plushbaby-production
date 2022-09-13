@@ -29,7 +29,7 @@ export const fetchAllListings = async (req, res) => {
 
 export const createAListing = async (req, res) => {
     const listing = req.body;
-    const newListingData = new ListingData({ ...listing });
+    const newListingData = new ListingData({ ...listing, createdAt: new Date().toISOString() });
 
     try {
         await newListingData.save();

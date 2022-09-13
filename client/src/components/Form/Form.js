@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Typography } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
@@ -6,41 +7,43 @@ import useStyles from './FormStyles';
 
 import  { createAListing, updateListing } from '../../actions/listings'
 
-const Form = ({ currentId, setCurrentId }) => {
-
-    const classes = useStyles();
-    const dispatch = useDispatch();
-    const [listingData, setListingData] = useState ({
-        title: '', 
-        subtitle: '',
-        price: '',  
-        condition: '', 
-        description: '', 
-        tags: '', 
-        selectedFile: '',
-    });
-    
-
-    const listing = useSelector((state) => (currentId ? state.listings.find((listing) => listing._id === currentId) : null ));
-
+const Form = ({ currentId, setCurrentId, loadedListing }) => {
+  
+    const listing = useSelector((state) => (currentId ? state.listings.find((listing) => listing._id === loadedListing._id) : null ));
     useEffect(() => {
         if(listing) setListingData(listing);
     }, [listing]);
 
+    const classes = useStyles();
+    const dispatch = useDispatch();
+    const [listingData, setListingData] = useState ({
+        title: loadedListing ? loadedListing.title : '', 
+        subtitle: loadedListing ? loadedListing.subtitle : '',
+        price: loadedListing ? loadedListing.price : '',  
+        condition: loadedListing ? loadedListing.condition : '', 
+        description: loadedListing ? loadedListing.description : '', 
+        tags: loadedListing ? loadedListing.tags : '', 
+        selectedFile: loadedListing ? loadedListing.selectedFile : '',
+    });
+    
     const clear = () => {
         setCurrentId(null);
         setListingData({ title: '', subtitle: '', condition: '', price: '', description: '', tags: '', selectedFile: '' });
     };
 
-    
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if(currentId === null) { 
+        if(!loadedListing) { 
             dispatch(createAListing( {...listingData } ))
             window.alert("Your listing has been posted");
+            window.location.reload(true);
+
         } else {
-            dispatch(updateListing( currentId, {...listingData } ));
+            console.log("updated listing");
+            dispatch(updateListing( loadedListing._id, {...listingData } ));
+            window.location.reload(true);
         }
+
         clear();
     };
 
@@ -56,7 +59,7 @@ const Form = ({ currentId, setCurrentId }) => {
             `} 
             onSubmit={handleSubmit}
         >
-            <Typography variant='h6'> {currentId ? 'Editing the' : 'Start a '}  listing </Typography>
+            <Typography variant='h6'> {loadedListing ? 'Editing this' : 'Start a '}  listing </Typography>
             
             <TextField 
                 name="title"
@@ -120,7 +123,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 >
                 </FileBase>
             </div>
-            <Button className={classes.mainButton} variant="contained" color="primary"  size="large" type="submit" fullWidth > Publish  </Button>
+            <Button className={classes.buttonSubmit} variant="contained" color="primary"  size="large" type="submit" fullWidth > {loadedListing ? 'Update changes' : 'Publish'}  </Button>
         </form>
         
     );

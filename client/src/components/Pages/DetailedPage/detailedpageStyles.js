@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
       media: {
         objectFit: 'cover',
         width: '100%',
-        maxHeight: '600px',
+        maxHeight: '700px',
         borderRadius: '26px',
       },
       

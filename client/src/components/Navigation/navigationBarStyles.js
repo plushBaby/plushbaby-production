@@ -30,20 +30,15 @@ export  default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'flex-end',
-    width: '400px',
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-    },
+    gridGap: '20px',
+    
   },
 
   link: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '400px',
+    borderRadius: '48px',
     [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-      marginTop: 20,
-      justifyContent: 'center',
       display: 'none',
     },
   },
@@ -55,10 +50,6 @@ export  default makeStyles((theme) => ({
     columnGap: '10px',
     lineHeight: '1.8',
   },
-
-  mainButton: {
-    borderRadius: '48px',
-  }, 
 
   mobileIcon: {
     display: 'none',
