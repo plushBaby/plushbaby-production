@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/user.js';
+import User from '../models/userData.js';
 
 export const signin = async ( req, res ) => {
     const { email, password } = req.body;
@@ -13,7 +13,7 @@ export const signin = async ( req, res ) => {
         if(!isPasswordMatch) {
             return res.status(400).json({ message: "Password is incorrect" }  );
         };
-        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, 'test', { expiresIn: "10h" });
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, 'test', { expiresIn: "1h" });
         res.status(200).json({ result: existingUser, token });
 
     } catch (error) {
@@ -31,7 +31,7 @@ export const signup = async ( req, res ) => {
         }
         const encryptPassword = await bcrypt.hash(password, 12);
         const newUser = await User.create({ email, password: encryptPassword, name: `${firstName} ${lastName}` });
-        const token = jwt.sign({ email: newUser.email, id: newUser._id}, 'test', { expiresIn: "10h" });
+        const token = jwt.sign({ email: newUser.email, id: newUser._id}, 'test', { expiresIn: "1h" });
         res.status(200).json({ result: newUser, token });
 
     } catch (error) {

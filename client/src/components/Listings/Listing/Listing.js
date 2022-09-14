@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect , useState }   from 'react';
+import {  useLocation , useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, CardActionArea, CardActions } from '@material-ui/core/';
 import useStyles from './ListingStyles';
 import moment from 'moment';
@@ -7,11 +7,18 @@ import moment from 'moment';
 const Listing = ({ listing , setCurrentId  }) => {
     
     const classes = useStyles();
+    const location = useLocation();
     const navigate = useNavigate();
+    const [ userIn, setUserIn ] = useState( JSON.parse( localStorage.getItem( 'profile')));
+
+    useEffect( () => {
+      // const token = userIn?.token;
+      setUserIn( JSON.parse( localStorage.getItem( 'profile')));
+    }, [location]);
 
     const openListingPage = () => {
-      navigate(`/listings/${listing._id}`);
       setCurrentId(listing._id);
+      navigate(`/listings/${listing._id}`);
     };
 
    
@@ -24,13 +31,13 @@ const Listing = ({ listing , setCurrentId  }) => {
 
             </div>
             <Typography  className={classes.cardTitle} > <b>   { listing.title } </b>   </Typography>
-            <Typography variant="body2"  gutterBottom> { listing.subtitle } </Typography>
+            <Typography variant="body2" > { listing.subtitle } </Typography>
             
             <Typography variant="body2" color="textSecondary"> Listed: {moment(listing.createdAt).fromNow()} </Typography> 
           </CardContent>
 
           <CardActions className={classes.cardActions} >
-            <Typography variant="body1"  component="p" color="textPrimary" gutterBottom> <b> Price: ${ listing.price }  </b> </Typography>
+            <Typography variant="body1"  component="p" color="textPrimary" > <b> Price: ${ listing.price }  </b> </Typography>
           </CardActions>
         </CardActionArea>
       </Card>

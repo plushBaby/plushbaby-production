@@ -4,6 +4,7 @@ import FLyoutNav from './components/Navigation/FlyoutNav';
 import NavigationBar from './components/Navigation/NavigationBar';
 import Home from './components/Pages/Home/Home';
 import UserAuthenticate from './components/Pages/Accounts/UserAuthenticate';
+import UserCreate from './components/Pages/Accounts/UserCreate';
 import NewListing from './components/Pages/NewListing/NewListing';
 import DetailedPage from './components/Pages/DetailedPage/DetailedPage';
 import Footer from './components/Footer/Footer';
@@ -39,22 +40,22 @@ const plushbabytheme = createTheme({
 
 const App = () =>  {
 
-    const [isOpen, setIsOpen] = useState(false)
+    const [isopen, setIsOpen] = useState(false)
     
     const toggleFlyout = () => {
-      setIsOpen(!isOpen)
-      console.log("menu icon clicked");
+        setIsOpen(!isopen)
     }
 
     return (
         <MuiThemeProvider theme={plushbabytheme}>
             <Router>
-                <FLyoutNav isOpen={isOpen} toggleFlyout={toggleFlyout} />
+                <FLyoutNav isopen={isopen} toggleFlyout={toggleFlyout} />
                 <NavigationBar toggleFlyout={toggleFlyout} />
                 <Routes>
                     <Route path='/' element={ <Home/> } />
                     <Route path='/listings' element={ <Home/> } />
                     <Route path='/auth' element={ <UserAuthenticate/> } />
+                    <Route path='/newuser' element={ <UserCreate/> } />
                     <Route path='/newlisting' element={ <NewListing/> } />
                     <Route path='/listings/:id' element={ <DetailedPage/> } />
                 </Routes>

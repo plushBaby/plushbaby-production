@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
-import listings from './Listings';
+import listingsReducer from './Listings';
+import AUTHReducer from "./AUTH";
 
-export const reducers = combineReducers({ listings });
+export const reducers = combineReducers({ listingsReducer, AUTHReducer  });

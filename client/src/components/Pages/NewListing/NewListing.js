@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import { Container, Grow } from '@material-ui/core';
 
 import Form from '../../Form/Form';
@@ -11,7 +11,6 @@ const NewListing = () => {
                 <Container>
                     <Form />
                 </Container>
-                
             </section>
         </Grow>
     );

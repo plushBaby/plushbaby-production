@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken';
 
-const loginAuth = async ( req, res, next) => {
+const userAUTH = async ( req, res, next) => {
     try {
-       
         const token = req.headers.authorization.split(" ")[1];
         const isCustomToken = token.length < 500;
         let decodedFormData;
@@ -23,4 +22,4 @@ const loginAuth = async ( req, res, next) => {
     }
 }
 
-export default loginAuth;
+export default userAUTH;

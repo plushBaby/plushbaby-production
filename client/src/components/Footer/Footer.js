@@ -8,13 +8,13 @@ const Footer = () => {
     // const classes = useStyles();
     return (
         <Box component="footer">
-            <Typography variant="h6" align="center" gutterBottom>
+            <Typography variant="h6" align="center">
                 Footer
             </Typography>
             <Typography
                 variant="subtitle1"
                 align="center"
-                color="text.secondary"
+                color="secondary"
                 component="p"
             >
                 Plush Babies - Your one stop place for all the cute and fuzzies

@@ -8,7 +8,6 @@ export default makeStyles((theme) => ({
         width: '70%',
         maxWidth: '500px',
         height: '100%',
-        background: 'white',
         display: 'grid',
         alignItems: 'center',
         top: '0',
@@ -34,5 +33,8 @@ export default makeStyles((theme) => ({
         display: 'block',
         maxWidth: '400px',
         margin: '10px auto',
+    },
+    userName: {
+        textTransform: 'capitalize',
     }
 }))

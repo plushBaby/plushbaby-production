@@ -46,11 +46,12 @@ const DetailedPage = () => {
                             <Grid item sm={6} md={7} >
                                 <div className={classes.section}>
                                     <Typography variant="h5" component="h5"> <b> {listing.title} </b> </Typography>
-                                    <Typography gutterBottom variant="h6" color="textSecondary" component="h6"> <i> {listing.tags} </i> </Typography>
+                                    <Typography variant="h6" color="textSecondary" component="h6"> <i> {listing.tags} </i> </Typography>
 
                                     <div>
                                         {/* only account creator will see */}
                                         <IconButton className={classes.icons} onClick={ confirmDelete }> <DeleteIcon fontSize="small" /> </IconButton>
+                                        <IconButton className={classes.icons} > <EditIcon fontSize="small" /> </IconButton>
                                     </div>
 
                                     <div> <Typography variant="h5" component="h5" color="textPrimary">  ${listing.price ? listing.price : <i> Make an offer </i>} </Typography>  </div>
@@ -66,7 +67,7 @@ const DetailedPage = () => {
                                 </div>
 
                                 <div className={classes.section}> 
-                                    <div> <Typography variant="body2"> <b> Seller: </b>  </Typography> </div>
+                                    <div> <Typography variant="body2"> <b> Seller: </b> {listing.name}  </Typography> </div>
                                     <div> <Typography variant="body2"> <b> Listed:  </b>  {moment(listing.createdAt).fromNow()}  </Typography> </div> 
                                 </div> 
 

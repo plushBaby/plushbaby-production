@@ -1,30 +1,61 @@
-import React from 'react';
-import {  Typography, MenuItem, Container, Button, Icon, Toolbar } from '@material-ui/core';
+import React, { useEffect , useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {  Typography, Container, Button, Icon} from '@material-ui/core';
 import Close from '@material-ui/icons/Close';
-import { Link } from 'react-router-dom';
 import useStyles from './FlyoutNavStyles';
 
-const FLyoutNav = ({isOpen, toggleFlyout}) => {
-    const classes = useStyles(isOpen);
+const FLyoutNav = ({isopen, toggleFlyout}) => {
+    const classes = useStyles();
+    const [ userIn, setUserIn ] = useState( JSON.parse( localStorage.getItem( 'accountProfile')));
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const logOut = () => {
+        alert("logout was clicked");
+        dispatch( { type: 'LOGOUT' } );
+        setUserIn(null);
+        navigate('/');
+    };
+
+    useEffect( () => {
+        setUserIn( JSON.parse( localStorage.getItem( 'accountProfile')));
+    }, [location]);
+
 
     return (
-        <aside  isOpen={isOpen} onClick={toggleFlyout} className={`${classes.FlyOutNavContainer} ${isOpen ? `${classes.isOpen}` : ''}`}>
-            <Container className={classes.container}>
-                <Button onClick={toggleFlyout}>
-                    <Icon >
-                        <Close />
-                    </Icon>
-                </Button>
+        <aside  isopen={isopen} onClick={toggleFlyout} className={`${classes.FlyOutNavContainer} ${isopen ? `${classes.isOpen}` : ''}`}>
+            {userIn ? (
+                <>
+                    <Container className={classes.container}>
+                        <Button onClick={toggleFlyout}>
+                            <Icon >
+                                <Close />
+                            </Icon>
+                        </Button>
+                        <div>
+                            <Typography variant='h5' className={classes.userName}> Hi, {userIn?.result.name}  </Typography>
+                            <Button className={classes.link} to="/newlisting" color="secondary" component={Link} onClick={toggleFlyout} variant="contained" fullWidth >   Create a New Listing  </Button>
+                            <Button className={classes.link} to="userlistings" color="secondary" component={Link}  onClick={toggleFlyout} variant="contained"  fullWidth>   View my Listings  </Button>
+                        </div>
 
-                <div>
-                    <Typography variant='h5'> Hi, Account holder name </Typography>
-                    <Button className={classes.link} to="/newlisting" color="secondary" component={Link} onClick={toggleFlyout} variant="contained" fullWidth gutterBottom>   Create a New Listing  </Button>
-                    <Button className={classes.link} to="userlistings" color="secondary" component={Link}  onClick={toggleFlyout} variant="contained"  fullWidth>   View my Listings  </Button>
-                </div>
-
-                <Button  className={classes.link} color="primary" component={Link} variant="contained" to="/auth" fullWidth> Log Out </Button>
-
-            </Container>
+                        <Button  className={classes.link} color="primary" variant="contained" onClick={logOut} fullWidth> Log Out </Button>
+                    </Container>
+                </>
+                ): (
+                <>
+                <Container>
+                    <Button onClick={toggleFlyout}>
+                        <Icon >
+                            <Close />
+                        </Icon>
+                    </Button>
+                    <Button variant="outlined" className={classes.link} to="/auth" component={Link} fullWidth > Sign In </Button> 
+                    <Button variant="contained" className={classes.link} to="/newuser" color="secondary" component={Link} fullWidth > Sign Up </Button>
+                </Container>
+                </>
+            )}
         </aside>
     )
 }

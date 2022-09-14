@@ -1,5 +1,5 @@
 import { AUTH } from '../constants/actionTypes';
-import * as api from '../api/index.js';
+import * as api from '../api/api.js';
 
 
 export const signin = ( signUpsignInFormData , navigate ) => async (dispatch) => {
@@ -11,7 +11,7 @@ export const signin = ( signUpsignInFormData , navigate ) => async (dispatch) =>
       navigate('/');
       
     } catch (error) {
-      alert(error.response.data.message);
+      console.log(error.response.data.message);
     }
   };
 
@@ -24,7 +24,7 @@ export const signin = ( signUpsignInFormData , navigate ) => async (dispatch) =>
       navigate('/');
 
     } catch (error) {
-      alert(error.response.data.message);
+      console.log(error.response.data.message);
     }
   };
   
