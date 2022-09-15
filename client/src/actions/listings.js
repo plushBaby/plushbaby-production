@@ -26,7 +26,6 @@ export const createAListing = (listing) => async (dispatch) => {
     try {
       const { data } = await api.createAListing(listing);
       dispatch({ type: CREATE, payload: data });
-      console.log("NEW LISTING WAS CREATED")
 
     } catch (error) {
       console.log(error);

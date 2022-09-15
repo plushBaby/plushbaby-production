@@ -29,6 +29,7 @@ export default makeStyles((theme) => ({
         borderRadius: '20px',
         flex: 1,
         padding: '5px 40px',
+        gridGap: '20px',
         [theme.breakpoints.down('xs')]: {
           padding: '5px',
         },
@@ -39,6 +40,27 @@ export default makeStyles((theme) => ({
           marginLeft: 0,
         },
       },
+
+      overlay: {
+        position: 'absolute',
+        top: '5px',
+        left: '5px',
+      },
+    
+      avatar: {
+        color: 'white',
+        backgroundColor: theme.palette.secondary.main,
+      },
+
+      icons: {
+        fontSize: '16px',
+        "&:hover": {
+          color: theme.palette.secondary.main,
+          backgroundColor: 'unset',
+        },
+      },
+
+
     
 
     

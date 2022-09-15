@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Typography } from '@material-ui/core';
+import { TextField, Button, Typography} from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import useStyles from './FormStyles';
-
 import  { createAListing, updateListing } from '../../actions/listings'
 
 const Form = ({ currentId, setCurrentId, loadedListing }) => {
   
     const listing = useSelector((state) => (currentId ? state.listings.find((listing) => listing._id === loadedListing._id) : null ));
+    const userIn = JSON.parse(localStorage.getItem('accountProfile'));
+
     useEffect(() => {
         if(listing) setListingData(listing);
     }, [listing]);
@@ -34,19 +34,27 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if(!loadedListing) { 
-            dispatch(createAListing( {...listingData } ))
-            window.alert("Your listing has been posted");
+            dispatch(createAListing( {...listingData, name: userIn?.result?.name } ))
+            window.alert("Your new listing has been posted.")
             window.location.reload(true);
 
         } else {
             console.log("updated listing");
-            dispatch(updateListing( loadedListing._id, {...listingData } ));
+            dispatch(updateListing( loadedListing._id, {...listingData, name: userIn?.result?.name } ));
             window.location.reload(true);
         }
 
         clear();
     };
 
+    if( !userIn?.result?.name) {
+        
+        return (
+            <Typography variant='h6' aligned='center'>
+                Please sign in to create a new listing
+            </Typography>
+        );
+    }
 
     return (
         
@@ -59,7 +67,7 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
             `} 
             onSubmit={handleSubmit}
         >
-            <Typography variant='h6'> {loadedListing ? 'Editing this' : 'Start a '}  listing </Typography>
+            <Typography variant='h4'> {loadedListing ? 'Editing this' : 'Start a '}  listing </Typography>
             
             <TextField 
                 name="title"

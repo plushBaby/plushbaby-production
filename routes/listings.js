@@ -9,11 +9,12 @@ import {
 } from '../controllers/listings.js'
 
 const router = express.Router();
+import userAUTH from '../middleware/AUTH.js';
 
 router.get('/', fetchAllListings);
 router.get('/:id', fetchOneListing);
-router.post('/', createAListing);
-router.patch('/:id', updateListing);
-router.delete('/:id', deleteListing);
+router.post('/', userAUTH , createAListing);
+router.patch('/:id', userAUTH , updateListing);
+router.delete('/:id', userAUTH  , deleteListing);
 
 export default router;

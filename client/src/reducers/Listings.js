@@ -1,4 +1,4 @@
-import { FETCH_ALL, FETCH_ONE, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
+import { FETCH_ALL, FETCH_ONE, CREATE, UPDATE, DELETE, FETCH_MATCH } from '../constants/actionTypes';
 
 export default ( state = { listings: [] } , action ) => {
     switch (action.type) {
@@ -14,6 +14,10 @@ export default ( state = { listings: [] } , action ) => {
 
         case UPDATE:
             return { ...state, listings: state.listings.map((listing) => listing._id === action.payload._id ? action.payload : listing) };
+
+        case FETCH_MATCH:
+            return { ...state, listings: state.listings.map((listing) => listing.creator === action.payload._id ? action.payload : listing) };
+
 
         case DELETE:
             return { ...state, listings: state.listings.filter((listing) => listing._id !== action.payload) };

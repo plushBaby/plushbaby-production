@@ -1,36 +1,50 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardMedia, Typography, CardActionArea, CardActions } from '@material-ui/core/';
+import React, { useEffect , useState }   from 'react';
+import {  useLocation , useNavigate } from 'react-router-dom';
+import { Card, CardContent, CardMedia, Typography, CardActionArea, CardActions , Avatar} from '@material-ui/core/';
 import useStyles from './ListingStyles';
 import moment from 'moment';
 
 const Listing = ({ listing , setCurrentId  }) => {
     
-    const classes = useStyles();
-    const navigate = useNavigate();
+  const classes = useStyles();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [ userIn, setUserIn ] = useState( JSON.parse( localStorage.getItem( 'accountProfile')));
+
+    useEffect( () => {
+      setUserIn( JSON.parse( localStorage.getItem( 'accountProfile')));
+    }, [location]);
 
     const openListingPage = () => {
-      navigate(`/listings/${listing._id}`);
       setCurrentId(listing._id);
+      navigate(`/listings/${listing._id}`);
     };
+
+    console.log(userIn?.result?._id === listing?.creator);
 
    
     return (
       <Card className={classes.roundedCorners}>
         <CardActionArea onClick={openListingPage}>
           <CardMedia  component="img" height="200"  image={listing.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
+          <div className={classes.overlay}>
+          
+          {( userIn?.result?._id === listing?.creator) && (
+              <>
+                <Avatar className={classes.avatar}>
+                  { listing.name.charAt(0) }
+                </Avatar>
+              </>
+            )}
+          </div>
           <CardContent className={classes.cardContent}>
-            <div >
-
-            </div>
             <Typography  className={classes.cardTitle} > <b>   { listing.title } </b>   </Typography>
-            <Typography variant="body2"  gutterBottom> { listing.subtitle } </Typography>
-            
+            <Typography variant="body2"  className={classes.p} > { listing.subtitle } </Typography>
             <Typography variant="body2" color="textSecondary"> Listed: {moment(listing.createdAt).fromNow()} </Typography> 
           </CardContent>
 
           <CardActions className={classes.cardActions} >
-            <Typography variant="body1"  component="p" color="textPrimary" gutterBottom> <b> Price: ${ listing.price }  </b> </Typography>
+            <Typography variant="body1"  component="p" color="textPrimary" > <b> Price: ${ listing.price }  </b> </Typography>
           </CardActions>
         </CardActionArea>
       </Card>

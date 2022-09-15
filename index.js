@@ -6,6 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import listingsRoutes from './routes/listings.js';
+import authRoutes from './routes/AUTH.js';
 
 const app = express();
 const __dirname = path.resolve();
@@ -16,6 +17,7 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 app.use('/listings', listingsRoutes);
+app.use('/auth', authRoutes);
 
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static('client/public'));
@@ -30,4 +32,4 @@ const PORT = process.env.PORT|| 3001; // local back end server port
 
 mongoose.connect( process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log( `production stage is connected to MongoDB & is running on Port: http://localhost:${PORT}` )))
-  .catch((error) => console.log(`${error} did not connect`));
+  .catch((error) => console.log(`${error} production stage did not connect`));

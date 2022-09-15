@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: '56.25%',
@@ -21,6 +21,23 @@ export default makeStyles(() => ({
   },
   cardActions: {
     padding: '5px 15px',
+  },
+  overlay: {
+    position: 'absolute',
+    top: '10px',
+    left: '10px',
+    color: 'white',
+  },
+
+  avatar: {
+    color: 'white',
+    backgroundColor: theme.palette.secondary.main,
+  },
+
+  p: {
+    lineHeight: 'normal',
+    fontSize: '12px',
+    padding: '5px 0',
   }
   
 }));
