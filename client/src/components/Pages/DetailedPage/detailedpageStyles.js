@@ -60,8 +60,8 @@ export default makeStyles((theme) => ({
         },
       },
 
-
-    
-
-    
+      price: {
+        color: theme.palette.secondary.main,
+        margin: '20px 0',
+      }
 }));

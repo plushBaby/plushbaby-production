@@ -1,19 +1,24 @@
 export const homeObjectOne = {
     id: 'homeHero',
-    lightBg: true,
-    lightText: true,
-    lightTextDesc: true,
-    darkTop: false,
+    imageBg: 'https://images.pexels.com/photos/6608191/pexels-photo-6608191.jpeg?cs=srgb&dl=pexels-jill-wellington-6608191.jpg&fm=jpg',
     topLine: 'Top Seller',
     headline: 'At vero eos et iusto odio dignissimos ',
-    description: 'ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit',
+    description: 'Quis autem vel eum iure reprehenderit',
     buttonLabel: 'Sign up to create your own listings now',
-    imgStart: false,
     img: '',
     alt: '',
-    dark: true,
-    primary: true,
-    darkText: true,
     page: '/newuser'
   }
   
+
+  export const detailedPageBanner = {
+    id: 'detailedBanner',
+    imageBg: 'https://images.pexels.com/photos/37532/valentine-candy-hearts-conversation-sweet-37532.jpeg?cs=srgb&dl=pexels-jill-wellington-37532.jpg&fm=jpg',
+    topLine: 'Detailed page',
+    headline: 'suscipit laboriosam, nisi ut aliquid ex ea commodi',
+    description: 'ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?',
+    buttonLabel: 'Hello!',
+    img: '',
+    alt: '',
+    page: '/newuser'
+  }

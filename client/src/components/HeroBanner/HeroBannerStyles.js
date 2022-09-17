@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const InfoContainer = styled.div `
     color: white;
-    background: #e6eaff;
+    background-color: #e6eaff;
+    background-size: cover;
     margin-bottom: 50px;
     @media screen and (max-width: 768px) {
         padding: 100px 0;
@@ -48,14 +49,14 @@ export const TextWrapper = styled.div `
 
 
 export const TopLine = styled.p `
-  color: #020e38;
-  font-size: 14px;
+  color: white;
+  font-size: 16px;
   line-height: 16px;
   letter-spacing: 1.4px;
   text-transform: uppercase;
   margin-bottom: 16px;
   font-weight: bold;
-  color: ${({ darkTop}) => (darkTop ? '#020e38' : '#cb00e8')};
+  text-shadow: 1px 1px 30px black;
 `
 
 export const Heading = styled.h1 `
@@ -63,16 +64,16 @@ export const Heading = styled.h1 `
   font-size: 42px;
   line-height: 1.1;
   font-weight: 600;
-  color: ${({ lightText}) => (lightText ? 'black' : 'white')};
+  text-shadow: 1px 1px 30px black;
 `
 
 export const Subtitle = styled.p `
   max-width: 440px;
   margin-bottom: 35px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
-  letter-spacing: 1PX;
-  color: ${({ darkText}) => (darkText ? '#181b23' : 'white')};
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 30px black;
 `
 
 export const BtnWrapper = styled.div `

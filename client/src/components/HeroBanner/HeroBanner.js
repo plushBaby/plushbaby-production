@@ -18,22 +18,22 @@ import {
   } from './HeroBannerStyles'
 
   const HeroBanner = ({
-    lightBg , dark, primary, 
-    id, imgStart, topLine, headline, description,
-    img, alt, buttonLabel, darkText, lightText, darkTop, page
+    imageBg, id, imgStart, topLine, headline, description,
+    img, alt, buttonLabel, darkTop, page
   }) => {
+    
   return (
     <>
-        <InfoContainer lightBg={lightBg} id={id}>
+        <InfoContainer id={id} style={{backgroundImage: `url(${imageBg})`}}>
           <InfoWrapper>
             <InfoRow imgStart={imgStart}>
               <Column1>
                 <TextWrapper>
                   <TopLine darkTop={darkTop}> {topLine} </TopLine>
-                  <Heading lightText={lightText}> {headline} </Heading>
-                  <Subtitle darkText={darkText}> {description} </Subtitle>
+                  <Heading > {headline} </Heading>
+                  <Subtitle > {description} </Subtitle>
                   <BtnWrapper>
-                    <Button to="/newlisting"  component={Link} color="secondary" variant="contained"> Create a New Listing </Button>
+                    <Button to={page} component={Link} color="secondary" variant="contained"> {buttonLabel} </Button>
                   </BtnWrapper>
                 </TextWrapper>
               </Column1>
