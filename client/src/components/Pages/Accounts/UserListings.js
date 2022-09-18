@@ -5,7 +5,8 @@ import {  useLocation  } from 'react-router-dom';
 import useStyles from '../Home/HomeStyles';
 import { fetchAllListings } from '../../../actions/listings';
 import Listings from '../../Listings/Listings';
-
+import HeroBanner from '../../HeroBanner/HeroBanner';
+import {userListingsBanner} from '../../HeroBanner/Data'
 
 const UserListings = () => {
     const [currentId, setCurrentId] = useState(null);
@@ -26,12 +27,15 @@ const UserListings = () => {
     
     return (
         <Grow in>
+            <>
+            <HeroBanner {...userListingsBanner} />
             <Container className={ classes.container }> 
                 <Grid container justifyContent='space-between' alignItems='stretch' spacing={2} >
                     <Listings setCurrentId={setCurrentId}/> 
                 </Grid>
                 <h3 align="center" > End of Listings </h3>
             </Container>
+            </>
         </Grow>
     );
 };

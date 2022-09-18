@@ -29,12 +29,20 @@ import {
             <InfoRow imgStart={imgStart}>
               <Column1>
                 <TextWrapper>
-                  <TopLine darkTop={darkTop}> {topLine} </TopLine>
+                  {topLine ?  
+                    <TopLine darkTop={darkTop}> {topLine} </TopLine>
+                    : <></>
+                  }
+                   
                   <Heading > {headline} </Heading>
                   <Subtitle > {description} </Subtitle>
-                  <BtnWrapper>
-                    <Button to={page} component={Link} color="secondary" variant="contained"> {buttonLabel} </Button>
-                  </BtnWrapper>
+                  {buttonLabel ? 
+                    <BtnWrapper>
+                      <Button to={page} component={Link} color="secondary" variant="contained"> {buttonLabel} </Button>
+                    </BtnWrapper>
+                    : <> </> 
+                  } 
+                  
                 </TextWrapper>
               </Column1>
 

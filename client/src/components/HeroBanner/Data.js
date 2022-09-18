@@ -22,3 +22,13 @@ export const homeObjectOne = {
     alt: '',
     page: '/newuser'
   }
+
+  export const userListingsBanner = {
+    id: 'userlistingsbanner',
+    imageBg: 'https://images.pexels.com/photos/1705287/pexels-photo-1705287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    headline: 'Your listings',
+    buttonLabel: '',
+    img: '',
+    alt: '',
+    page: ''
+  }

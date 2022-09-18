@@ -5,9 +5,6 @@ export const InfoContainer = styled.div `
     background-color: #e6eaff;
     background-size: cover;
     margin-bottom: 50px;
-    @media screen and (max-width: 768px) {
-        padding: 100px 0;
-    }
 `
 
 export const InfoWrapper = styled.div `
@@ -18,6 +15,9 @@ export const InfoWrapper = styled.div `
   margin: auto;
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    height: auto;
+}
 `
 
 export const InfoRow = styled.div `
@@ -57,6 +57,9 @@ export const TopLine = styled.p `
   margin-bottom: 16px;
   font-weight: bold;
   text-shadow: 1px 1px 30px black;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const Heading = styled.h1 `
@@ -74,6 +77,9 @@ export const Subtitle = styled.p `
   line-height: 20px;
   letter-spacing: 1px;
   text-shadow: 1px 1px 30px black;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const BtnWrapper = styled.div `
