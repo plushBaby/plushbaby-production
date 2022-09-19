@@ -5,6 +5,7 @@ import useStyles from './HomeStyles';
 import { fetchAllListings } from '../../../actions/listings';
 import Listings from '../../Listings/Listings';
 import HeroBanner from '../../HeroBanner/HeroBanner';
+import Categories from '../../Categories/Categories';
 import {homeObjectOne} from '../../HeroBanner/Data'
 
 const Home = () => {
@@ -21,7 +22,9 @@ const Home = () => {
         <Grow in>
             <>
                 <HeroBanner {...homeObjectOne} />
+                <Categories />
                 <Container className={ classes.container }> 
+                    
                     <Grid container justifyContent='space-between' alignItems='stretch' spacing={2} >
                         <Listings setCurrentId={setCurrentId}/>
                     </Grid>

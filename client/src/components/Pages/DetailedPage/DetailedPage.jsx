@@ -10,7 +10,7 @@ import Form from '../../Form/Form';
 import { fetchOneListing, deleteListing } from '../../../actions/listings';
 import useStyles from './detailedpageStyles';
 import HeroBanner from '../../HeroBanner/HeroBanner';
-import {detailedPageBanner} from '../../HeroBanner/Data'
+import {detailedPageBanner} from '../../HeroBanner/Data';
 
 const DetailedPage = () => {
     const [currentId, setCurrentId] = useState(0);
@@ -68,7 +68,8 @@ const DetailedPage = () => {
                                         <div> <Typography variant="h4" component="h4"  className={classes.price}>  ${listing.price ? listing.price : <i> Make an offer </i>} </Typography>  </div>
                                     </div>
 
-                                    <div className={classes.section}>           
+                                    <div className={classes.section}>     
+                                        <div> <Typography variant="body2"  component="p"> <b> Category:  </b> {listing.category ? listing.category : <i> No info provided </i>} </Typography></div>      
                                         <div> <Typography variant="body2"  component="p"> <b> Condition:  </b> {listing.condition ? listing.condition : <i> No info provided </i>} </Typography></div>
                                     </div> 
 
@@ -92,8 +93,11 @@ const DetailedPage = () => {
                                         </Toolbar>
                                     )}
 
-                                    <div className={classes.section} >
+                                    <div className={classes.commentSection} >
                                         <Typography variant="body1"><strong> Comments </strong></Typography>
+                                        <textarea />
+                                        <Button className={classes.icons}  color="primary" variant="contained">Submit </Button>
+                                    
                                     </div>    
                                 </Grid>
                             </Grid>

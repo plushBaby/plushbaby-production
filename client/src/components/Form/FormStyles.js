@@ -28,4 +28,8 @@ export default makeStyles((theme) => ({
         margin: 'auto',
         maxWidth: '400px'
       },
+
+      formControl: {
+        margin: '8px'
+      }
 }));

@@ -4,6 +4,7 @@ const listingSchema = mongoose.Schema({
     title: String,
     subtitle: String,
     price: Number,
+    category: String,
     condition: String,
     description: String,
     creator: String,
