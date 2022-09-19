@@ -8,9 +8,11 @@ export default makeStyles((theme) => ({
         },
       },
       paper: {
-        padding: theme.spacing(2),
+        
       },
+
       form: {
+        margin: '80px auto',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
@@ -21,9 +23,13 @@ export default makeStyles((theme) => ({
         margin: '10px 0',
       },
       buttonSubmit: {
-        marginBottom: 10,
-      },
-      mainButton: {
         borderRadius: '48px',
+        marginBottom: 10,
+        margin: 'auto',
+        maxWidth: '400px'
+      },
+
+      formControl: {
+        margin: '8px'
       }
 }));

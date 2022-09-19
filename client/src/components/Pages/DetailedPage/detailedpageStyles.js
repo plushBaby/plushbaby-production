@@ -1,44 +1,38 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-
+ 
     paper: {
-        marginTop: '20px',
-        display: 'flex',
-        backgroundColor: 'unset',
-        boxShadow: 'unset',
-      },
-    
-      container: {
-        display: 'flex',
+        display: 'block',
+        height: '100%',
       },
     
       media: {
         objectFit: 'cover',
         width: '100%',
-        maxHeight: '600px',
+        maxHeight: '700px',
         borderRadius: '26px',
       },
+      
       card: {
         position: 'relative',
-        margin: '0 20px',
+        margin: '20px',
         display: 'flex',
         boxSizing: 'border-box',
-        backgroundColor: 'white',
-        [theme.breakpoints.down('sm')]: {
-          flexWrap: 'wrap',
-          flexDirection: 'column',
-        },
-    
         [theme.breakpoints.down('xs')]: {
           margin: '20px 0',
+          display: 'block',
         },
       },
       
       section: {
         borderRadius: '20px',
         flex: 1,
-        padding: '20px'
+        padding: '5px 40px',
+        gridGap: '20px',
+        [theme.breakpoints.down('xs')]: {
+          padding: '5px',
+        },
       },
     
       imageSection: {
@@ -46,7 +40,32 @@ export default makeStyles((theme) => ({
           marginLeft: 0,
         },
       },
-    
 
+      overlay: {
+        position: 'absolute',
+        top: '5px',
+        left: '5px',
+      },
     
+      avatar: {
+        color: 'white',
+        backgroundColor: theme.palette.secondary.main,
+      },
+
+      icons: {
+        fontSize: '16px',
+        "&:hover": {
+          color: theme.palette.secondary.main,
+          backgroundColor: 'unset',
+        },
+
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '10px',
+        },
+      },
+
+      price: {
+        color: theme.palette.secondary.main,
+        margin: '20px 0',
+      }
 }));

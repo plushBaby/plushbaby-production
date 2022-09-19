@@ -1,11 +1,14 @@
-import React  from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FLyoutNav from './components/Navigation/FlyoutNav';
 import NavigationBar from './components/Navigation/NavigationBar';
 import Home from './components/Pages/Home/Home';
 import UserAuthenticate from './components/Pages/Accounts/UserAuthenticate';
+import UserListings from './components/Pages/Accounts/UserListings';
+import UserCreate from './components/Pages/Accounts/UserCreate';
+import NewListing from './components/Pages/NewListing/NewListing';
 import DetailedPage from './components/Pages/DetailedPage/DetailedPage';
 import Footer from './components/Footer/Footer';
-
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 
 const plushbabytheme = createTheme({
@@ -36,17 +39,27 @@ const plushbabytheme = createTheme({
 
 });
 
-
 const App = () =>  {
+
+    const [isopen, setIsOpen] = useState(false)
+    
+    const toggleFlyout = () => {
+        setIsOpen(!isopen)
+    }
+
     return (
         <MuiThemeProvider theme={plushbabytheme}>
             <Router>
-                <NavigationBar />
+                <FLyoutNav isopen={isopen} toggleFlyout={toggleFlyout} />
+                <NavigationBar toggleFlyout={toggleFlyout} />
                 <Routes>
                     <Route path='/' element={ <Home/> } />
-                    <Route path='/posts' element={ <Home/> } />
+                    <Route path='/listings' element={ <Home/> } />
                     <Route path='/auth' element={ <UserAuthenticate/> } />
-                    <Route path='/posts/detailedpage' element={ <DetailedPage/> } />
+                    <Route path='/newuser' element={ <UserCreate/> } />
+                    <Route path='/userlistings' element={ <UserListings/> } />
+                    <Route path='/newlisting' element={ <NewListing/> } />
+                    <Route path='/listings/:id' element={ <DetailedPage/> } />
                 </Routes>
                 <Footer />
             </Router>

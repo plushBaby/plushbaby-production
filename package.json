@@ -8,7 +8,6 @@
     "client": "cd client && npm start",
     "start": "concurrently \"npm run dev\" \"npm run client\""
   },
-
   "keywords": [],
   "author": "Team JVQ: Jordan, Vy, Quang",
   "license": "ISC",
@@ -23,12 +22,10 @@
     "mongoose": "^6.5.1",
     "nodemon": "^2.0.19",
     "react-confirm-alert": "^3.0.6",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "react-scroll": "^1.8.4",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {},
   "description": ""
-  
 }
-
-
-

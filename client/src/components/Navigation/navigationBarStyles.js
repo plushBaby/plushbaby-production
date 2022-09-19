@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles((theme) => ({
+export  default makeStyles((theme) => ({
   appBar: {
     display: 'flex',
     flexDirection: 'row',
@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
     padding: '10px 50px',
     background: theme.palette.primary.main,
     [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
+      padding: '10px',
     },
   },
   brandContainer: {
@@ -22,7 +22,6 @@ export default makeStyles((theme) => ({
   },
 
   heading: {
-    color: theme.palette.primary.main,
     color: 'white',
     textDecoration: 'none',
     fontSize: '1.5em',
@@ -31,29 +30,35 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'flex-end',
-    width: '400px',
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-    },
-  },
-  profile: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '400px',
-    color: 'white',
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-      marginTop: 20,
-      justifyContent: 'center',
-    },
-  },
-  profileName: {
-    display: 'flex',
-    columnGap: '10px',
+    gridGap: '20px',
+    
   },
 
-  mainButton: {
+  link: {
+    display: 'flex',
+    justifyContent: 'space-between',
     borderRadius: '48px',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+
+  navlink: {
+    color: 'white',
+    textDecoration: 'none',
+    display: 'flex',
+    columnGap: '10px',
+    lineHeight: '1.8',
+  },
+
+  mobileIcon: {
+    display: 'none',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
+      cursor: 'pointer',
+      color: 'white',
+    },
   }
-  
 }))
+
