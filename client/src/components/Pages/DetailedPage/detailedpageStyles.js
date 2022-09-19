@@ -58,6 +58,10 @@ export default makeStyles((theme) => ({
           color: theme.palette.secondary.main,
           backgroundColor: 'unset',
         },
+
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '10px',
+        },
       },
 
       price: {

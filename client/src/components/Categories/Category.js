@@ -5,9 +5,9 @@ import useStyles from './CategoryStyles';
 const Category = () => {
 const classes = useStyles();
   return (
-    <Container>
-        <Grid container spacing={10}>
-                <Grid item xs={8} sm={4} lg={2}>
+    <Container className={classes.category}>
+        <Grid container spacing={8}>
+                <Grid item xs={6} md={2} lg={2}>
                     <Card className={classes.categoryCard}>
                     <CardActionArea  className={classes.wrapper} >
                         <CardMedia
@@ -24,7 +24,7 @@ const classes = useStyles();
                     </Card>
                 </Grid>
 
-                <Grid item xs={8} sm={4} lg={2}>
+                <Grid item xs={6} md={2} lg={2}>
                     <Card className={classes.categoryCard}>
                         <CardActionArea  className={classes.wrapper} >
                             <CardMedia
@@ -41,7 +41,7 @@ const classes = useStyles();
                     </Card>
                 </Grid>
 
-                <Grid item xs={8} sm={4} lg={2}>
+                <Grid item xs={6} md={2} lg={2}>
                     <Card className={classes.categoryCard}>
                         <CardActionArea  className={classes.wrapper} >
                             <CardMedia
@@ -58,7 +58,7 @@ const classes = useStyles();
                     </Card>
                 </Grid>
 
-                <Grid item xs={8} sm={4} lg={2}>
+                <Grid item xs={6} md={2} lg={2}>
                     <Card className={classes.categoryCard}>
                         <CardActionArea  className={classes.wrapper} >
                             <CardMedia
@@ -75,7 +75,7 @@ const classes = useStyles();
                     </Card>
                 </Grid>
 
-                <Grid item xs={8} sm={4} lg={2}>
+                <Grid item xs={6} md={2} lg={2}>
                     <Card className={classes.categoryCard}>
                         <CardActionArea  className={classes.wrapper} >
                             <CardMedia
@@ -92,7 +92,7 @@ const classes = useStyles();
                     </Card>
                 </Grid>
 
-                <Grid item xs={8} sm={4} lg={2}>
+                <Grid item xs={6} md={2} lg={2}>
                     <Card className={classes.categoryCard}>
                         <CardActionArea  className={classes.wrapper} >
                             <CardMedia

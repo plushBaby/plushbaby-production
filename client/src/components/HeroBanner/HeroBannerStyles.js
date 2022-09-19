@@ -64,10 +64,13 @@ export const TopLine = styled.p `
 
 export const Heading = styled.h1 `
   margin-bottom: 24px;
-  font-size: 42px;
+  font-size: 38px;
   line-height: 1.1;
   font-weight: 600;
   text-shadow: 1px 1px 30px black;
+  @media screen and (max-width: 998px) {
+    font-size: 22px;
+  }
 `
 
 export const Subtitle = styled.p `
