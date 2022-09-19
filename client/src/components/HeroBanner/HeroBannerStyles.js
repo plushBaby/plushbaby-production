@@ -9,7 +9,7 @@ export const InfoContainer = styled.div `
 
 export const InfoWrapper = styled.div `
   z-index: 1;
-  height: 400px;
+  height: 300px;
   width: 100%;
   max-width: 1280px;
   margin: auto;
