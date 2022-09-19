@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography} from '@material-ui/core';
+import { TextField, Button, Typography, FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import useStyles from './FormStyles';
@@ -19,7 +19,8 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
     const [listingData, setListingData] = useState ({
         title: loadedListing ? loadedListing.title : '', 
         subtitle: loadedListing ? loadedListing.subtitle : '',
-        price: loadedListing ? loadedListing.price : '',  
+        price: loadedListing ? loadedListing.price : '', 
+        category: loadedListing ? loadedListing.category : '', 
         condition: loadedListing ? loadedListing.condition : '', 
         description: loadedListing ? loadedListing.description : '', 
         tags: loadedListing ? loadedListing.tags : '', 
@@ -28,7 +29,7 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
     
     const clear = () => {
         setCurrentId(null);
-        setListingData({ title: '', subtitle: '', condition: '', price: '', description: '', tags: '', selectedFile: '' });
+        setListingData({ title: '', subtitle: '', condition: '', price: '', category: '', description: '', tags: '', selectedFile: '' });
     };
 
     const handleSubmit = async (event) => {
@@ -114,6 +115,28 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
                 value={listingData.description}
                 onChange={(event) => setListingData({ ...listingData, description: event.target.value })}
             />
+            
+             
+             
+            <FormControl fullWidth variant="outlined"  className={classes.formControl} >
+                    <InputLabel id="category">Category</InputLabel>
+                    <Select
+                        labelId="category"
+                        name="category"
+                        label="Category"
+                        value={listingData.category}
+                        fullWidth
+                        onChange={(event) => setListingData({ ...listingData, category: event.target.value })}
+                    >
+                    <MenuItem value="Beanie Babies"> Beanie Babies </MenuItem>
+                    <MenuItem value="Furby"> Furby </MenuItem>
+                    <MenuItem value="Disney"> Disney </MenuItem>
+                    <MenuItem value="Pokemon"> Pokemon </MenuItem>
+                    <MenuItem value="Riotgames"> Riot Games </MenuItem>
+                    <MenuItem value="Miscellaneous"> Miscellaneous </MenuItem>
+                    </Select>
+            </FormControl>
+
 
             <TextField
                 name="tags"

@@ -68,7 +68,8 @@ const DetailedPage = () => {
                                         <div> <Typography variant="h4" component="h4"  className={classes.price}>  ${listing.price ? listing.price : <i> Make an offer </i>} </Typography>  </div>
                                     </div>
 
-                                    <div className={classes.section}>           
+                                    <div className={classes.section}>     
+                                        <div> <Typography variant="body2"  component="p"> <b> Category:  </b> {listing.category ? listing.category : <i> No info provided </i>} </Typography></div>      
                                         <div> <Typography variant="body2"  component="p"> <b> Condition:  </b> {listing.condition ? listing.condition : <i> No info provided </i>} </Typography></div>
                                     </div> 
 

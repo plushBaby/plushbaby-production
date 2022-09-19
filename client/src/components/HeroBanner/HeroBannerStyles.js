@@ -4,7 +4,7 @@ export const InfoContainer = styled.div `
     color: white;
     background-color: #e6eaff;
     background-size: cover;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 `
 
 export const InfoWrapper = styled.div `
