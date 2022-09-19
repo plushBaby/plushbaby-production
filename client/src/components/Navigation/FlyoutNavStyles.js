@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
         left: '-100%',
         transition: '0.3s ease-in-out',
         textAlign: 'center',
-        background: 'radial-gradient(circle, rgba(243,253,255,1) 0%, rgba(217,250,255,1) 34%, rgba(243,253,255,1) 100%)',
+        background: 'white',
     },
     isOpen: {
         opacity: '100%',
@@ -33,6 +33,8 @@ export default makeStyles((theme) => ({
         display: 'block',
         maxWidth: '400px',
         margin: '10px auto',
+        borderradius: "62px",
+        textTransform: 'capitalize'
     },
     userName: {
         textTransform: 'capitalize',

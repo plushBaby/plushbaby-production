@@ -37,7 +37,7 @@ const FLyoutNav = ({isopen, toggleFlyout}) => {
                         <div>
                             <Typography variant='h5' className={classes.userName}> Hi, {userIn?.result.name}  </Typography>
                             <Button className={classes.link} to="/newlisting" color="secondary" component={Link} onClick={toggleFlyout} variant="contained" fullWidth >   Create a New Listing  </Button>
-                            <Button className={classes.link} to="userlistings" color="secondary" component={Link}  onClick={toggleFlyout} variant="contained"  fullWidth>   View my Listings  </Button>
+                            <Button className={classes.link} to="userlistings" color="primary" component={Link}  onClick={toggleFlyout} variant="contained"  fullWidth>   View my Listings  </Button>
                         </div>
 
                         <Button  className={classes.link} color="primary" variant="contained" onClick={logOut} fullWidth> Log Out </Button>
@@ -51,8 +51,9 @@ const FLyoutNav = ({isopen, toggleFlyout}) => {
                             <Close />
                         </Icon>
                     </Button>
-                    <Button variant="outlined" className={classes.link} to="/auth" component={Link} fullWidth > Sign In </Button> 
-                    <Button variant="contained" className={classes.link} to="/newuser" color="secondary" component={Link} fullWidth > Sign Up </Button>
+                    <Typography variant='h5' className={classes.userName}> Welcome to Plush Babies!</Typography>
+                    <Button variant="contained" className={classes.link} to="/auth" color="secondary" component={Link} fullWidth > Sign In </Button> 
+                    <Button variant="contained" className={classes.link} to="/newuser" color="primary" component={Link} fullWidth > Sign Up </Button>
                 </Container>
                 </>
             )}

@@ -21,7 +21,7 @@ const plushbabytheme = createTheme({
         },
         secondary: {
             light: '#baccff',
-            main: '#869bff',
+            main: '#EBF0F3',
             dark: '#516dcb',
             contrastText: '#000',
         },
