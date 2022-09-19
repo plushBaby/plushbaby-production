@@ -16,7 +16,6 @@ export default makeStyles((theme) => ({
         left: '-100%',
         transition: '0.3s ease-in-out',
         textAlign: 'center',
-
         background: 'white',
     },
     isOpen: {
@@ -34,7 +33,9 @@ export default makeStyles((theme) => ({
         display: 'block',
         maxWidth: '400px',
         margin: '10px auto',
-        textTransform: 'capitalize'
+        textTransform: 'capitalize',
+        borderRadius: "68px",
+        padding: "15px",
     },
     userName: {
         textTransform: 'capitalize',

@@ -36,7 +36,7 @@ const FLyoutNav = ({isopen, toggleFlyout}) => {
                         </Button>
                         <div>
                             <Typography variant='h5' className={classes.userName}> Hi, {userIn?.result.name}  </Typography>
-                            <Button className={classes.link} to="/newlisting" color="secondary" component={Link} onClick={toggleFlyout} variant="contained" fullWidth >   Create a New Listing  </Button>
+                            <Button className={classes.link} to="/newlisting" color="light" component={Link} onClick={toggleFlyout} variant="contained" fullWidth >   Create a New Listing  </Button>
                             <Button className={classes.link} to="userlistings" color="primary" component={Link}  onClick={toggleFlyout} variant="contained"  fullWidth>   View my Listings  </Button>
                         </div>
 
@@ -52,7 +52,7 @@ const FLyoutNav = ({isopen, toggleFlyout}) => {
                         </Icon>
                     </Button>
                     <Typography variant='h5' className={classes.userName}> Welcome to Plush Babies!</Typography>
-                    <Button variant="contained" className={classes.link} to="/auth" color="secondary" component={Link} fullWidth > Sign In </Button> 
+                    <Button variant="contained" className={classes.link} to="/auth" color="light" component={Link} fullWidth > Sign In </Button> 
                     <Button variant="contained" className={classes.link} to="/newuser" color="primary" component={Link} fullWidth > Sign Up </Button>
                 </Container>
                 </>

@@ -34,6 +34,16 @@ export default makeStyles((theme) => ({
           padding: '5px',
         },
       },
+      
+      commentSection: {
+        borderRadius: '20px',
+        flex: 1,
+        padding: '5px 40px',
+        gridGap: '20px',
+        [theme.breakpoints.down('xs')]: {
+          padding: '5px',
+        },
+      },
     
       imageSection: {
         [theme.breakpoints.down('sm')]: {

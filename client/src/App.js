@@ -11,6 +11,7 @@ import DetailedPage from './components/Pages/DetailedPage/DetailedPage';
 import Footer from './components/Footer/Footer';
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 
+
 const plushbabytheme = createTheme({
     palette: {
         primary: {
@@ -20,9 +21,15 @@ const plushbabytheme = createTheme({
             contrastText: '#fff',
         },
         secondary: {
-            light: '#baccff',
+            light: '#252525',
+            main: '#00000',
+            dark: '#000',
+            contrastText: '#fff',
+        },
+        light: {
+            light: '#F2F7FA',
             main: '#EBF0F3',
-            dark: '#516dcb',
+            dark: 'C5D6DF',
             contrastText: '#000',
         },
     },
