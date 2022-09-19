@@ -132,7 +132,7 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
                     <MenuItem value="Furby"> Furby </MenuItem>
                     <MenuItem value="Disney"> Disney </MenuItem>
                     <MenuItem value="Pokemon"> Pokemon </MenuItem>
-                    <MenuItem value="Riotgames"> Riot Games </MenuItem>
+                    <MenuItem value="Riot Games"> Riot Games </MenuItem>
                     <MenuItem value="Miscellaneous"> Miscellaneous </MenuItem>
                     </Select>
             </FormControl>
