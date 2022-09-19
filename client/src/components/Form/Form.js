@@ -110,12 +110,12 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
                 label="Description"
                 fullWidth
                 multiline
-                rows={4}
+                rows={5}
                 value={listingData.description}
                 onChange={(event) => setListingData({ ...listingData, description: event.target.value })}
             />
 
-            <TextField 
+            <TextField
                 name="tags"
                 variant="outlined"
                 label="Tags"
@@ -123,6 +123,7 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
                 value={listingData.tags}
                 onChange={(event) => setListingData({ ...listingData, tags: event.target.value.split(',') })}
             />
+
             <div className={classes.fileInput}>
                 <FileBase
                     type="file"

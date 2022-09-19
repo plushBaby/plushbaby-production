@@ -44,7 +44,7 @@ const Listing = ({ listing , setCurrentId  }) => {
           </CardContent>
 
           <CardActions className={classes.cardActions} >
-            <Typography variant="body1"  component="p" color="textPrimary" > <b> Price: ${ listing.price }  </b> </Typography>
+            <Typography variant="body1"  component="p" color="textPrimary" > <b> ${listing.price ? listing.price : <i> Make an offer </i>}  </b> </Typography>
           </CardActions>
         </CardActionArea>
       </Card>

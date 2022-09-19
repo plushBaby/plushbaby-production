@@ -4,10 +4,10 @@ export const homeObjectOne = {
     topLine: 'Top Seller',
     headline: 'At vero eos et iusto odio dignissimos ',
     description: 'Quis autem vel eum iure reprehenderit',
-    buttonLabel: 'Sign up to create your own listings now',
+    buttonLabel: '',
     img: '',
     alt: '',
-    page: '/newuser'
+    page: ''
   }
   
 
@@ -17,7 +17,7 @@ export const homeObjectOne = {
     topLine: 'Detailed page',
     headline: 'suscipit laboriosam, nisi ut aliquid ex ea commodi',
     description: 'ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?',
-    buttonLabel: 'Hello!',
+    buttonLabel: '',
     img: '',
     alt: '',
     page: '/newuser'

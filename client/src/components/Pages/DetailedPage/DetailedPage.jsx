@@ -64,28 +64,26 @@ const DetailedPage = () => {
                                 <Grid item sm={6} md={7} >
                                     <div className={classes.section}>
                                         <Typography variant="h5" component="h5"> <b> {listing.title} </b> </Typography>
-                                        <Typography variant="h6" color="textSecondary" component="h6"> <i> {listing.tags} </i> </Typography>
-                                        
-                                    
-                                        
-
+                                        <Typography variant="h6" component="h6">  {listing.subtitle}  </Typography>
                                         <div> <Typography variant="h4" component="h4"  className={classes.price}>  ${listing.price ? listing.price : <i> Make an offer </i>} </Typography>  </div>
-
                                     </div>
 
                                     <div className={classes.section}>           
                                         <div> <Typography variant="body2"  component="p"> <b> Condition:  </b> {listing.condition ? listing.condition : <i> No info provided </i>} </Typography></div>
-                                        
                                     </div> 
+
                                     <div className={classes.section}>
                                         <div> <Typography variant="body2"  component="p"> <b> Description: </b> {listing.description ? listing.description : <i> No info provided </i> }    </Typography> </div>  
                                     </div>
 
                                     <div className={classes.section}> 
-
                                         <div> <Typography variant="body2"> <b> Seller: </b> {listing.name}  </Typography> </div>
                                         <div> <Typography variant="body2"> <b> Listed:  </b>  {moment(listing.createdAt).fromNow()}  </Typography> </div> 
                                     </div> 
+
+                                    <div className={classes.section}> 
+                                        <Typography variant="body2" color="textSecondary" > <i> {listing.tags.map((tag) => `#${tag}, `)}</i> </Typography>
+                                    </div>
 
                                     {( userIn?.result?._id === listing?.creator) && (
                                         <Toolbar className={classes.section} >
