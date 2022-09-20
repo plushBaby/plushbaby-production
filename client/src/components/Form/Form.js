@@ -40,7 +40,6 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
             window.location.reload(true);
 
         } else {
-            console.log("updated listing");
             dispatch(updateListing( loadedListing._id, {...listingData, name: userIn?.result?.name } ));
             window.location.reload(true);
         }
@@ -133,7 +132,7 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
                     <MenuItem value="Disney"> Disney </MenuItem>
                     <MenuItem value="Pokemon"> Pokemon </MenuItem>
                     <MenuItem value="Riot Games"> Riot Games </MenuItem>
-                    <MenuItem value="Miscellaneous"> Miscellaneous </MenuItem>
+                    <MenuItem value="Anime"> Anime </MenuItem>
                     </Select>
             </FormControl>
 

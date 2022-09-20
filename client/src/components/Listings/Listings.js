@@ -11,7 +11,7 @@ const Listings = ({ setCurrentId }) => {
     
     return (
         !listings?.length ? <CircularProgress /> : (
-            <Grid className={ classes.container } container alignItems="stretch" spacing={1}  >
+            <Grid className={ classes.container } container alignItems="stretch" spacing={2}  >
                     {listings.map((listing) => (
                         <Grid key={listing._id} item xs={6} sm={4} md={3} lg={2} >
                             <Listing listing={listing} setCurrentId={setCurrentId}/>

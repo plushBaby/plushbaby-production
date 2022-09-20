@@ -20,9 +20,6 @@ const Listing = ({ listing , setCurrentId  }) => {
       navigate(`/listings/${listing._id}`);
     };
 
-    console.log(userIn?.result?._id === listing?.creator);
-
-   
     return (
       <Card className={classes.roundedCorners}>
         <CardActionArea onClick={openListingPage}>
@@ -40,7 +37,6 @@ const Listing = ({ listing , setCurrentId  }) => {
           <CardContent className={classes.cardContent}>
             <Typography  className={classes.cardTitle} > <b>   { listing.title } </b>   </Typography>
             <Typography variant="body2"  className={classes.p} > { listing.subtitle } </Typography>
-            <Typography variant="body2" color="textSecondary"> Listed: {moment(listing.createdAt).fromNow()} </Typography> 
           </CardContent>
 
           <CardActions className={classes.cardActions} >

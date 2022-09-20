@@ -103,7 +103,7 @@ const classes = useStyles();
                                 alt="green iguana"
                             />
                             <CardContent className={classes.content}>
-                                <Typography gutterBottom variant="body2" component="div"> Miscellaneous  </Typography>
+                                <Typography gutterBottom variant="body2" component="div"> Anime  </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>

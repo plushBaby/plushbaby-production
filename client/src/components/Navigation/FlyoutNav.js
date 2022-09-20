@@ -51,7 +51,7 @@ const FLyoutNav = ({isopen, toggleFlyout}) => {
                             <Close />
                         </Icon>
                     </Button>
-                    <Typography variant='h5' className={classes.userName}> Welcome to Plush Babies!</Typography>
+                    <Typography variant='h5' className={classes.userName}> Welcome to Plush Babies </Typography>
                     <Button variant="contained" className={classes.link} to="/auth" color="light" component={Link} fullWidth > Sign In </Button> 
                     <Button variant="contained" className={classes.link} to="/newuser" color="primary" component={Link} fullWidth > Sign Up </Button>
                 </Container>

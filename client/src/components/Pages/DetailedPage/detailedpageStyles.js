@@ -75,7 +75,7 @@ export default makeStyles((theme) => ({
       },
 
       price: {
-        color: theme.palette.secondary.main,
+        color: theme.palette.secondary.dark,
         margin: '20px 0',
       }
 }));

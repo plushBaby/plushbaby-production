@@ -12,11 +12,11 @@ export default makeStyles((theme) => ({
   },
   cardTitle: {
     fontSize: '14px',
-    lineHeight: 'normal',
+    lineHeight: '14px',
   },
 
   cardContent: {
-    height: '100px',
+    height: '80px',
     overflow: 'hidden',
   },
   cardActions: {

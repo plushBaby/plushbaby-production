@@ -1,25 +1,36 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Container, Typography } from '@material-ui/core';
 // import { Link } from 'react-router-dom';
-// import useStyles from './FooterStyles';
+import useStyles from './FooterStyles';
 
 const Footer = () => {
     
-    // const classes = useStyles();
+    const classes = useStyles();
+
     return (
-        <Box component="footer">
-            <Typography variant="h6" align="center">
-                Footer
-            </Typography>
-            <Typography
-                variant="subtitle1"
-                align="center"
-                color="secondary"
-                component="p"
-            >
-                Plush Babies - Your one stop place for all the cute and fuzzies
-            </Typography>
-            {/* End footer */}
+        <Box component="footer" className={classes.container }>
+            <Container>
+                <Typography
+                    fullWidth
+                    variant="subtitle1"
+                    align="center"
+                    color="secondary"
+                    component="p"
+                    className={classes.slogan }
+                >
+                    Your one stop place for all the cute and fuzzies
+                </Typography>
+                <Typography
+                    fullWidth
+                    variant="subtitle1"
+                    align="center"
+                    color="secondary"
+                    component="p"
+                    className={classes.slogan }
+                >
+                    &copy; 2022 Plush Babies
+                </Typography>
+            </Container>
         </Box>
     );
 };

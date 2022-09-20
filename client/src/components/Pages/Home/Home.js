@@ -15,7 +15,6 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(fetchAllListings()); 
-        console.log("displaying all listings");
     }, [currentId, dispatch]);
     
     return (
@@ -23,7 +22,7 @@ const Home = () => {
             <>
                 <HeroBanner {...homeObjectOne} />
                 <Categories />
-                <Container className={ classes.container }> 
+                <Container className={ classes.container}> 
                     
                     <Grid container justifyContent='space-between' alignItems='stretch' spacing={2} >
                         <Listings setCurrentId={setCurrentId}/>
