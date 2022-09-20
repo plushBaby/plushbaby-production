@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { Column1 } from '../../HeroBanner/HeroBannerStyles';
 
 export default makeStyles((theme) => ({
  
@@ -37,9 +38,11 @@ export default makeStyles((theme) => ({
       
       commentSection: {
         borderRadius: '20px',
-        flex: 1,
         padding: '5px 40px',
         gridGap: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flexEnd',
         [theme.breakpoints.down('xs')]: {
           padding: '5px',
         },
@@ -59,7 +62,7 @@ export default makeStyles((theme) => ({
     
       avatar: {
         color: 'white',
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main,
       },
 
       icons: {
@@ -73,6 +76,17 @@ export default makeStyles((theme) => ({
           fontSize: '10px',
         },
       },
+
+      submit: {
+        fontSize: '16px',
+        borderRadius: '68px',
+        "&:hover": {
+          color: theme.palette.secondary.main,
+          backgroundColor: 'unset',
+        },
+      },
+
+      
 
       price: {
         color: theme.palette.secondary.main,
