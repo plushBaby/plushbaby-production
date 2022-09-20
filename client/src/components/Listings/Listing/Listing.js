@@ -2,9 +2,8 @@ import React, { useEffect , useState }   from 'react';
 import {  useLocation , useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, CardActionArea, CardActions , Avatar} from '@material-ui/core/';
 import useStyles from './ListingStyles';
-import moment from 'moment';
 
-const Listing = ({ listing , setCurrentId  }) => {
+const Listing = ({ listing , setCurrentId }) => {
     
   const classes = useStyles();
   const location = useLocation();

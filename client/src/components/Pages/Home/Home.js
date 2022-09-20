@@ -23,7 +23,6 @@ const Home = () => {
                 <HeroBanner {...homeObjectOne} />
                 <Categories />
                 <Container className={ classes.container}> 
-                    
                     <Grid container justifyContent='space-between' alignItems='stretch' spacing={2} >
                         <Listings setCurrentId={setCurrentId}/>
                     </Grid>

@@ -11,7 +11,6 @@ const Footer = () => {
         <Box component="footer" className={classes.container }>
             <Container>
                 <Typography
-                    fullWidth
                     variant="subtitle1"
                     align="center"
                     color="secondary"
@@ -21,7 +20,6 @@ const Footer = () => {
                     Your one stop place for all the cute and fuzzies
                 </Typography>
                 <Typography
-                    fullWidth
                     variant="subtitle1"
                     align="center"
                     color="secondary"

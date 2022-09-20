@@ -8,6 +8,7 @@ import UserListings from './components/Pages/Accounts/UserListings';
 import UserCreate from './components/Pages/Accounts/UserCreate';
 import NewListing from './components/Pages/NewListing/NewListing';
 import DetailedPage from './components/Pages/DetailedPage/DetailedPage';
+import CategoryPage from './components/Pages/CategoryPage';
 import Footer from './components/Footer/Footer';
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 
@@ -62,6 +63,7 @@ const App = () =>  {
                 <Routes>
                     <Route path='/' element={ <Home/> } />
                     <Route path='/listings' element={ <Home/> } />
+                    <Route path='/:category' element={ <CategoryPage/> } />
                     <Route path='/auth' element={ <UserAuthenticate/> } />
                     <Route path='/newuser' element={ <UserCreate/> } />
                     <Route path='/userlistings' element={ <UserListings/> } />
