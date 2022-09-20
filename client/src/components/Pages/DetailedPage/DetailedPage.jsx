@@ -21,6 +21,16 @@ const DetailedPage = () => {
     const classes = useStyles();
     const { id } = useParams();
 
+    const [comment, setComment] = useState("");
+    const [comments, setComments ] = useState([]);
+
+    const onClickHandler = () => {
+        setComments((comments) => [...comments, comment])
+    };
+    const onChangeHandler = (e) => {
+        setComment(e.target.value)
+    };
+
 
     useEffect( () => {
         setUserIn( JSON.parse( localStorage.getItem( 'accountProfile')));
@@ -37,6 +47,10 @@ const DetailedPage = () => {
             setCurrentId(null);
         }
     };
+
+    
+
+   
 
     if (!listing) {
         return null
@@ -94,11 +108,28 @@ const DetailedPage = () => {
                                         </Toolbar>
                                     )}
 
+
+                                    {/* COMMENT SECTION */}
+
                                     <div className={classes.commentSection} >
-                                        <Typography variant="body1"><strong> Comments </strong></Typography>
-                                        <textarea />
-                                        <Button className={classes.submit}  color="primary" variant="contained"> Submit </Button>
-                                    
+                                    <Typography variant="h5"><strong> Comments </strong></Typography>
+
+                                        
+                                        {comments.map((text) => (
+                                            <div className={classes.commentBox}>{text}</div>
+                                        ))}
+
+                                        
+                                        <div className={classes.commentFlexbox}>
+                                            
+
+                                            <Typography variant="body2"><strong> Ask a question </strong></Typography>
+                                            <textarea className={classes.commentBox} value={comment} onChange={ onChangeHandler } />
+
+                                            <Button onClick={onClickHandler} className={classes.submit}  color="primary" variant="contained">Submit </Button>
+                                        </div>
+                                        
+                                           
                                     </div>    
                                 </Grid>
                             </Grid>

@@ -35,6 +35,7 @@ export default makeStyles((theme) => ({
           padding: '5px',
         },
       },
+
       
       commentSection: {
         borderRadius: '20px',
@@ -47,7 +48,18 @@ export default makeStyles((theme) => ({
           padding: '5px',
         },
       },
-    
+
+      commentFlexbox: {
+        display: 'flex',
+        flexDirection: 'column',
+      },
+
+      commentBox: {
+        fontSize: "16px",
+        height: "75px",
+        backgroundColor: theme.palette.light.main,
+      },
+
       imageSection: {
         [theme.breakpoints.down('sm')]: {
           marginLeft: 0,
@@ -80,6 +92,7 @@ export default makeStyles((theme) => ({
       submit: {
         fontSize: '16px',
         borderRadius: '68px',
+        marginTop: "20px",
         "&:hover": {
           color: theme.palette.secondary.main,
           backgroundColor: 'unset',
