@@ -47,7 +47,7 @@ const DetailedPage = () => {
             <>
                 <HeroBanner {...detailedPageBanner} />
                 <Container>
-                <h1 align="center"> Making this change without pulling before pushing </h1>
+                
                     {currentId !== null
                         ? <> 
                             <Grid className={classes.card}  alignItems="stretch">
