@@ -96,7 +96,9 @@ const DetailedPage = () => {
                                     <div className={classes.commentSection} >
                                         <Typography variant="body1"><strong> Comments </strong></Typography>
                                         <textarea />
+
                                         <Button className={classes.submit}  color="primary" variant="contained">Submit </Button>
+
                                     
                                     </div>    
                                 </Grid>
