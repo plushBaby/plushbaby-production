@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     categories: {
+        margin: '50px auto',
         [theme.breakpoints.down('sm')]: {
             display: 'none',
         },

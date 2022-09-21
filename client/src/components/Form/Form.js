@@ -124,6 +124,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
                         labelId="category"
                         name="category"
                         label="Category"
+                        required
                         value={listingData.category}
                         fullWidth
                         onChange={(event) => setListingData({ ...listingData, category: event.target.value })}

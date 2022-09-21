@@ -43,7 +43,7 @@ const DetailedPage = () => {
     }, [id ] );
 
     const confirmDelete = () => {
-        if(window.confirm("Do you want to delete listing: " + listing.title ) === true ) {
+        if(window.confirm("Do you want to delete listing: " + listing.title + "?" ) === true ) {
             dispatch(deleteListing(listing._id)) 
             setCurrentId(null);
         }

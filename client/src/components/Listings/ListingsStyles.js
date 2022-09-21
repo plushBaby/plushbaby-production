@@ -5,4 +5,8 @@ export default makeStyles(() => ({
         display: 'flex',
         alignItems: 'center',
     },
+
+    loading: {
+        display: 'block'
+    }
 }));
