@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
 
   avatar: {
     color: 'white',
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
 
   p: {

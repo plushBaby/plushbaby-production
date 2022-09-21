@@ -10,6 +10,7 @@ import {homeObjectOne} from '../../HeroBanner/Data'
 
 const Home = () => {
     const [currentId, setCurrentId] = useState(null);
+    const [currentCategory, setCategory] = useState(null);
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ const Home = () => {
                 <Container className={ classes.container}> 
                         
                     <Grid container justifyContent='space-between' alignItems='stretch' spacing={2} >
-                        <Listings setCurrentId={setCurrentId}/>
+                        <Listings setCategory={setCategory}  setCurrentId={setCurrentId}/>
                     </Grid>
                     <h3 align="center" > End of Listings </h3>
                 </Container>

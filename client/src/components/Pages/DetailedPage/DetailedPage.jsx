@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {  useLocation  } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { Grid, Typography , IconButton, Grow, Container, Avatar, Button, Toolbar } from '@material-ui/core';
+import { Grid, Typography , Grow, Container, Avatar, Button, Toolbar } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import moment from 'moment';
@@ -14,6 +14,7 @@ import {detailedPageBanner} from '../../HeroBanner/Data';
 
 const DetailedPage = () => {
     const [currentId, setCurrentId] = useState(0);
+    const [currentCategory, setCategory] = useState(null);
     const { listing } = useSelector( (state) => state.listings);
     const [ userIn, setUserIn ] = useState( JSON.parse( localStorage.getItem( 'accountProfile')));
     const dispatch = useDispatch();
@@ -48,9 +49,6 @@ const DetailedPage = () => {
         }
     };
 
-    
-
-   
 
     if (!listing) {
         return null
@@ -64,7 +62,7 @@ const DetailedPage = () => {
                 
                     {currentId !== null
                         ? <> 
-                            <Grid className={classes.card}  alignItems="stretch">
+                            <Grid className={classes.card} >
                                 <Grid item sm={6} md={5} >
                                     <div className={classes.imageSection}>
                                         <img className={classes.media} src={listing.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={listing.title} />

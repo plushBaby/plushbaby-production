@@ -4,7 +4,7 @@ import { Grid, CircularProgress  } from '@material-ui/core';
 import Listing from './Listing/Listing';
 import useStyles from './ListingsStyles';
 
-const Listings = ({ setCurrentId }) => {
+const Listings = ({ setCurrentId , setCategory }) => {
     const listings = useSelector((state) => state.listings);
     const classes = useStyles();
  
@@ -13,7 +13,7 @@ const Listings = ({ setCurrentId }) => {
             <Grid className={ classes.container } container alignItems="stretch" spacing={2}  >
                     {listings.map((listing) => (
                         <Grid key={listing._id} item xs={6} sm={4} md={3} lg={2} >
-                            <Listing listing={listing} category={listing.category} setCurrentId={setCurrentId}/>
+                            <Listing listing={listing} setCategory={setCategory} setCurrentId={setCurrentId}/>
                         </Grid>
                     ))}
             </Grid>

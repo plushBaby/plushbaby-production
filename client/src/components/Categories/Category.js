@@ -1,5 +1,5 @@
-import React from 'react';
-import {  useNavigate } from 'react-router-dom';
+import React, { useEffect , useState }   from 'react';
+import { useLocation , useNavigate } from 'react-router-dom';
 import { Card,  CardMedia, CardContent, Typography, CardActionArea , Link} from '@material-ui/core';
 import useStyles from './CategoryStyles';
 
@@ -7,15 +7,21 @@ const Category = ({ category }) => {
 
     const classes = useStyles();
     const navigate = useNavigate();
-    
+    const location = useLocation();
+    const [ currentCategory, setCategory ] = useState(null);
+
+    useEffect( () => {
+        setCategory(category.title);
+      }, [location]);
+
     const openCategoryPage = () => {
+        // setCurrentId(listing._id);
+        setCategory(category.name);
         navigate(`/${category.name}`);
     };
 
-return (
-    
-    <Card className={classes.categoryCard}>
-        {/* <Link to={`/listings/${category.name}`}>  */}
+    return (
+        <Card className={classes.categoryCard}>
             <CardActionArea  className={classes.wrapper} onClick={openCategoryPage}>
                 <CardMedia
                     className={classes.img}
@@ -28,10 +34,8 @@ return (
                     <Typography gutterBottom variant="body2" component="div"> {category.title} </Typography>
                 </CardContent>
             </CardActionArea>
-        {/* </Link> */}
-    </Card>
-
-  )
+        </Card>
+    )
 }
 
 export default Category

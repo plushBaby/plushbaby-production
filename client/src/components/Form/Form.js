@@ -5,7 +5,7 @@ import FileBase from 'react-file-base64';
 import useStyles from './FormStyles';
 import  { createAListing, updateListing } from '../../actions/listings'
 
-const Form = ({ currentId, setCurrentId, loadedListing }) => {
+const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
   
     const listing = useSelector((state) => (currentId ? state.listings.find((listing) => listing._id === loadedListing._id) : null ));
     const userIn = JSON.parse(localStorage.getItem('accountProfile'));
@@ -29,6 +29,7 @@ const Form = ({ currentId, setCurrentId, loadedListing }) => {
     
     const clear = () => {
         setCurrentId(null);
+        setCategory(null);
         setListingData({ title: '', subtitle: '', condition: '', price: '', category: '', description: '', tags: '', selectedFile: '' });
     };
 
