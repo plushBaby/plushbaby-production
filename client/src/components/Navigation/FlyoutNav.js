@@ -13,7 +13,6 @@ const FLyoutNav = ({isopen, toggleFlyout}) => {
     const navigate = useNavigate();
 
     const logOut = () => {
-        alert("logout was clicked");
         dispatch( { type: 'LOGOUT' } );
         setUserIn(null);
         navigate('/listings');
