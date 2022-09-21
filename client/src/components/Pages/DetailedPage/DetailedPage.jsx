@@ -11,6 +11,7 @@ import { fetchOneListing, deleteListing } from '../../../actions/listings';
 import useStyles from './detailedpageStyles';
 import HeroBanner from '../../HeroBanner/HeroBanner';
 import {detailedPageBanner} from '../../HeroBanner/Data';
+import Comments from "../../Comments/Comments";
 
 const DetailedPage = () => {
     const [currentId, setCurrentId] = useState(0);
@@ -22,15 +23,6 @@ const DetailedPage = () => {
     const classes = useStyles();
     const { id } = useParams();
 
-    const [comment, setComment] = useState("");
-    const [comments, setComments ] = useState([]);
-
-    const onClickHandler = () => {
-        setComments((comments) => [...comments, comment])
-    };
-    const onChangeHandler = (e) => {
-        setComment(e.target.value)
-    };
 
 
     useEffect( () => {
@@ -107,28 +99,9 @@ const DetailedPage = () => {
                                     )}
 
 
-                                    {/* COMMENT SECTION */}
+                                    <Comments currentUserId="1"/>
 
-                                    <div className={classes.commentSection} >
-                                    <Typography variant="h5"><strong> Comments </strong></Typography>
-
-                                        
-                                        {comments.map((text) => (
-                                            <div className={classes.commentBox}>{text}</div>
-                                        ))}
-
-                                        
-                                        <div className={classes.commentFlexbox}>
-                                            
-
-                                            <Typography variant="body2"><strong> Ask a question </strong></Typography>
-                                            <textarea className={classes.commentBox} value={comment} onChange={ onChangeHandler } />
-
-                                            <Button onClick={onClickHandler} className={classes.submit}  color="primary" variant="contained">Submit </Button>
-                                        </div>
-                                        
-                                           
-                                    </div>    
+                                       
                                 </Grid>
                             </Grid>
                             {( userIn?.result?._id === listing?.creator) && (
