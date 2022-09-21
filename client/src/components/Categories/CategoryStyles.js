@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-    category: {
+    categories: {
         [theme.breakpoints.down('sm')]: {
             display: 'none',
         },
@@ -18,12 +18,12 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             padding: '10px',
         },
-
     },
 
     img: {
         borderRadius: '100px',
     },
+    
     content: {
         padding: '10px 0',
         lineHeight: 'normal',
