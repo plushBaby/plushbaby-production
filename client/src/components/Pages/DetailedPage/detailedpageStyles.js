@@ -1,106 +1,103 @@
-import { makeStyles } from '@material-ui/core/styles';
-import { Column1 } from '../../HeroBanner/HeroBannerStyles';
+import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
- 
-    paper: {
-        display: 'block',
-        height: '100%',
-      },
-    
-      media: {
-        objectFit: 'cover',
-        width: '100%',
-        maxHeight: '700px',
-        borderRadius: '26px',
-      },
-      
-      card: {
-        position: 'relative',
-        margin: '20px',
-        display: 'flex',
-        boxSizing: 'border-box',
-        [theme.breakpoints.down('xs')]: {
-          margin: '20px 0',
-          display: 'block',
-        },
-      },
-      
-      section: {
-        borderRadius: '20px',
-        flex: 1,
-        padding: '5px 40px',
-        gridGap: '20px',
-        [theme.breakpoints.down('xs')]: {
-          padding: '5px',
-        },
-      },
+  paper: {
+    display: "block",
+    height: "100%",
+  },
 
-      
-      commentSection: {
-        borderRadius: '20px',
-        padding: '5px 40px',
-        gridGap: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flexEnd',
-        [theme.breakpoints.down('xs')]: {
-          padding: '5px',
-        },
-      },
+  media: {
+    objectFit: "cover",
+    width: "100%",
+    maxHeight: "700px",
+    borderRadius: "26px",
+  },
 
-      commentFlexbox: {
-        display: 'flex',
-        flexDirection: 'column',
-      },
+  card: {
+    position: "relative",
+    margin: "20px",
+    display: "flex",
+    boxSizing: "border-box",
+    [theme.breakpoints.down("xs")]: {
+      margin: "20px 0",
+      display: "block",
+    },
+  },
 
-      commentBox: {
-        fontSize: "16px",
-        height: "75px",
-        backgroundColor: theme.palette.light.main,
-      },
+  section: {
+    borderRadius: "20px",
+    flex: 1,
+    padding: "5px 40px",
+    gridGap: "20px",
+    [theme.breakpoints.down("xs")]: {
+      padding: "5px",
+    },
+  },
 
-      imageSection: {
-        [theme.breakpoints.down('sm')]: {
-          marginLeft: 0,
-        },
-      },
+  commentSection: {
+    borderRadius: "20px",
+    padding: "5px 40px",
+    gridGap: "20px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flexEnd",
+    [theme.breakpoints.down("xs")]: {
+      padding: "5px",
+    },
+  },
 
-      overlay: {
-        position: 'absolute',
-        top: '5px',
-        left: '5px',
-      },
-    
-      avatar: {
-        color: 'white',
-        backgroundColor: theme.palette.primary.main,
-      },
+  commentFlexbox: {
+    display: "flex",
+    flexDirection: "column",
+  },
 
-      icons: {
-        fontSize: '16px',
-        "&:hover": {
-          color: theme.palette.secondary.main,
-          backgroundColor: 'unset',
-        },
+  commentBox: {
+    fontSize: "16px",
+    height: "75px",
+    backgroundColor: theme.palette.light.main,
+  },
 
-        [theme.breakpoints.down('xs')]: {
-          fontSize: '10px',
-        },
-      },
+  imageSection: {
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
+  },
 
-      submit: {
-        fontSize: '16px',
-        borderRadius: '68px',
-        marginTop: "20px",
-        "&:hover": {
-          color: theme.palette.secondary.main,
-          backgroundColor: 'unset',
-        },
-      },
+  overlay: {
+    position: "absolute",
+    top: "5px",
+    left: "5px",
+  },
 
-      price: {
-        color: theme.palette.secondary.dark,
-        margin: '20px 0',
-      }
+  avatar: {
+    color: "white",
+    backgroundColor: theme.palette.primary.main,
+  },
+
+  icons: {
+    fontSize: "16px",
+    "&:hover": {
+      color: theme.palette.secondary.main,
+      backgroundColor: "unset",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "10px",
+    },
+  },
+
+  submit: {
+    fontSize: "16px",
+    borderRadius: "68px",
+    marginTop: "20px",
+    "&:hover": {
+      color: theme.palette.secondary.main,
+      backgroundColor: "unset",
+    },
+  },
+
+  price: {
+    color: theme.palette.secondary.dark,
+    margin: "20px 0",
+  },
 }));

@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
-    container: {
-        margin: '20px auto',
-    }
+  container: {
+    margin: "20px auto",
+  },
 }));

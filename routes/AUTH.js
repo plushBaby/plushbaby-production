@@ -1,10 +1,10 @@
-import express from 'express';
+import express from "express";
 
-import { signin, signup } from '../controllers/AUTH.js'
+import { signin, signup } from "../controllers/AUTH.js";
 
 const router = express.Router();
 
-router.post('/signin', signin ); // form and data from sign in gets posted to the server
-router.post('/signup', signup ); // form and data from sign up gets posted to the server
+router.post("/signin", signin);
+router.post("/signup", signup);
 
 export default router;

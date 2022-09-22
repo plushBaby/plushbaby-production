@@ -1,19 +1,19 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const listingSchema = mongoose.Schema({
-    title: String,
-    subtitle: String,
-    price: Number,
-    category: String,
-    condition: String,
-    description: String,
-    creator: String,
-    tags: [String],
-    selectedFile: String,
-    name: String,
-    createdAt: {type: Date, default: new Date() },
+  title: String,
+  subtitle: String,
+  price: Number,
+  category: String,
+  condition: String,
+  description: String,
+  creator: String,
+  tags: [String],
+  selectedFile: String,
+  name: String,
+  createdAt: { type: Date, default: new Date() },
 });
 
-const ListingData = mongoose.model('ListingData', listingSchema);
+const ListingData = mongoose.model("ListingData", listingSchema);
 
-export default ListingData ;
+export default ListingData;
