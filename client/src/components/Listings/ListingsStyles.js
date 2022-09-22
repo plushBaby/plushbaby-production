@@ -1,8 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
-    container: {
-        display: 'flex',
-        alignItems: 'center',
-    },
+  container: {
+    display: "flex",
+    alignItems: "center",
+  },
+
+  loading: {
+    display: "block",
+  },
 }));

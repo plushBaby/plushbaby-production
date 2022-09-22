@@ -9,7 +9,6 @@ export const homeObjectOne = {
     alt: '',
     page: ''
   }
-  
 
   export const detailedPageBanner = {
     id: 'detailedBanner',
