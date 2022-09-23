@@ -18,21 +18,29 @@ export default makeStyles((theme) => ({
   },
 
   commentFormTextarea: {
-    width: "100%",
+    display: "flex",
+    justifyContent: ""
+  },
+
+  commentFormUserDetailsarea: {
+    width: "90%",
+    height: "25px",
+  },
+
+  commentFormTextarea: {
+    width: "90%",
     height: "80px",
     marginBottom: "8px",
     marginTop: "8px",
     border: "none",
-    color: theme.palette.secondary.dark,
     border: "1px #fffff",
   },
 
   commentFormButton: {
     fontSize: "16px",
     padding: "8px 16px",
-    background: "#84D4E1",
     borderRadius: "8px",
-    background: theme.palette.light.main,
+    color: theme.palette.primary.main,
   },
 
   commentFormButton: {

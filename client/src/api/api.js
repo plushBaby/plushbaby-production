@@ -15,3 +15,4 @@ export const updateListing = (id, updatedListing) => API.patch(`/listings/${id}`
 export const deleteListing = (id) => API.delete(`/listings/${id}`);
 export const signIn = (signUpsignInFormData) => API.post('/auth/signin', signUpsignInFormData);
 export const signUp = (signUpsignInFormData) => API.post('/auth/signup', signUpsignInFormData);
+export const makeAComment = (id, comment) => API.post(`/listings/${id}`, comment);

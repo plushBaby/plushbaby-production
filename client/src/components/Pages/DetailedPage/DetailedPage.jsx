@@ -201,7 +201,7 @@ const DetailedPage = () => {
                       </Button>
                     </Toolbar>
                   )}
-                  <Comments currentUserId="1" />
+                  <Comments/>
                 </Grid>
               </Grid>
               {userIn?.result?._id === listing?.creator && (

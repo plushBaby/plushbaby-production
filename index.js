@@ -1,12 +1,13 @@
 // Imports
-import express from "express";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import cors from "cors";
-import dotenv from "dotenv";
-import path from "path";
-import listingsRoutes from "./routes/listings.js";
-import authRoutes from "./routes/AUTH.js";
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import path from 'path';
+import listingsRoutes from './routes/listings.js';
+import authRoutes from './routes/AUTH.js';
+import commentsRoutes from './routes/comments.js';
 
 const app = express();
 const __dirname = path.resolve();
@@ -16,8 +17,9 @@ dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-app.use("/listings", listingsRoutes);
-app.use("/auth", authRoutes);
+app.use('/listings', listingsRoutes);
+app.use('/auth', authRoutes);
+app.use('/comments', commentsRoutes);
 
 if (
   process.env.NODE_ENV === "production" ||
