@@ -16,3 +16,4 @@ export const deleteListing = (id) => API.delete(`/listings/${id}`);
 export const commentListing = (value, id) => API.post(`/listings/${id}/commentListing`, { value });
 export const signIn = (signUpsignInFormData) => API.post('/auth/signin', signUpsignInFormData);
 export const signUp = (signUpsignInFormData) => API.post('/auth/signup', signUpsignInFormData);
+export const makeAComment = (id, comment) => API.post(`/listings/${id}`, comment);

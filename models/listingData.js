@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+
 
 const listingSchema = mongoose.Schema({
   title: String,
@@ -14,6 +15,6 @@ const listingSchema = mongoose.Schema({
   createdAt: { type: Date, default: new Date() },
 });
 
-const ListingData = mongoose.model("ListingData", listingSchema);
+const ListingData = mongoose.model('ListingData', listingSchema);
 
-export default ListingData;
+export default ListingData ;
