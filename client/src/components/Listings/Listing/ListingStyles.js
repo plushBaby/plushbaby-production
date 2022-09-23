@@ -39,4 +39,11 @@ export default makeStyles((theme) => ({
     fontSize: "12px",
     padding: "5px 0",
   },
+
+  buttonSubmit: {
+    borderRadius: "48px",
+    margin: "20px auto",
+    maxWidth: "400px",
+    display: "block",
+  },
 }));

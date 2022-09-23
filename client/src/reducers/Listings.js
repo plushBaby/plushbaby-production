@@ -4,6 +4,7 @@ import {
   CREATE,
   UPDATE,
   DELETE,
+  COMMENT,
   FETCH_MATCH,
 } from "../constants/actionTypes";
 
@@ -40,6 +41,17 @@ export default (state = { listings: [] }, action) => {
         listings: state.listings.filter(
           (listing) => listing._id !== action.payload
         ),
+      };
+
+    case COMMENT:
+      return {
+        ...state,
+        listings: state.listings.map((listing) => {
+          if (listing._id === action.payload) {
+            return action.payload;
+          }
+          return listing;
+        }),
       };
 
     default:

@@ -18,9 +18,8 @@ import Form from "../../Form/Form";
 import { fetchOneListing, deleteListing } from "../../../actions/listings";
 import useStyles from "./detailedpageStyles";
 import HeroBanner from "../../HeroBanner/HeroBanner";
+import CommentSection from "../../Listings/Listing/CommentSection";
 import { detailedPageBanner } from "../../HeroBanner/Data";
-import Comments from "../../Comments/Comments";
-
 const DetailedPage = () => {
   const [currentId, setCurrentId] = useState(0);
   const [currentCategory, setCategory] = useState(null);
@@ -201,9 +200,14 @@ const DetailedPage = () => {
                       </Button>
                     </Toolbar>
                   )}
-                  <Comments currentUserId="1" />
                 </Grid>
               </Grid>
+              <div className={classes.section}>
+                <Typography variant="body1">
+                  <strong> Comments </strong>
+                </Typography>
+                <CommentSection listing={listing} />
+              </div>
               {userIn?.result?._id === listing?.creator && (
                 <Form loadedListing={listing} />
               )}

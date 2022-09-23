@@ -8,9 +8,9 @@ const listingSchema = mongoose.Schema({
   condition: String,
   description: String,
   creator: String,
-  tags: [String],
   selectedFile: String,
   name: String,
+  comments: { type: [String], default: [] },
   createdAt: { type: Date, default: new Date() },
 });
 

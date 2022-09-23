@@ -48,7 +48,6 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
       price: "",
       category: "",
       description: "",
-      tags: "",
       selectedFile: "",
     });
   };
@@ -170,19 +169,6 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
           <MenuItem value="Anime"> Anime </MenuItem>
         </Select>
       </FormControl>
-      <TextField
-        name="tags"
-        variant="outlined"
-        label="Tags"
-        fullWidth
-        value={listingData.tags}
-        onChange={(event) =>
-          setListingData({
-            ...listingData,
-            tags: event.target.value.split(","),
-          })
-        }
-      />
       <div className={classes.fileInput}>
         <FileBase
           type="file"

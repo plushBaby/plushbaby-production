@@ -6,7 +6,6 @@ const router = express.Router();
 
 export const fetchOneListing = async (req, res) => {
   const { id } = req.params;
-
   try {
     const listing = await ListingData.findById(id);
     res.status(200).json(listing);
@@ -64,6 +63,19 @@ export const deleteListing = async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
+};
+
+export const commentListing = async (req, res) => {
+  const { id } = req.params;
+  const { value } = req.body;
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No listing with the id: ${id}`);
+  const listing = await ListingData.findById(id);
+  listing.comments.push(value);
+  const updateListing = await ListingData.findByIdAndUpdate(id, listing, {
+    new: true,
+  });
+  res.json(updateListing);
 };
 
 export default router;
