@@ -1,4 +1,3 @@
-// Imports
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
@@ -11,7 +10,6 @@ import commentsRoutes from './routes/comments.js';
 
 const app = express();
 const __dirname = path.resolve();
-
 dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -25,16 +23,16 @@ if (
   process.env.NODE_ENV === "production" ||
   process.env.NODE_ENV === "staging"
 ) {
-  app.use(express.static("client/public"));
+  app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/client/public/index.html"));
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
 }
 
 const DATABASE_URL =
   "mongodb+srv://plushbaby:yoobee2022@cluster0.xw1rqum.mongodb.net/?retryWrites=true&w=majority";
-const PORT = process.env.PORT || 3001; // local back end server port
+const PORT = process.env.PORT || 3001;
 
 mongoose
   .connect(process.env.DATABASE_URL, {
