@@ -10,6 +10,7 @@ import {
   Avatar,
   Button,
   Toolbar,
+  CircularProgress, 
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
@@ -53,7 +54,13 @@ const DetailedPage = () => {
   };
 
   if (!listing) {
-    return null;
+    return (
+      <>
+        <Container align="center">
+          <CircularProgress className={classes.loading} />
+        </Container>
+      </>
+    )
   }
 
   return (
