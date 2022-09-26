@@ -179,13 +179,6 @@ const DetailedPage = () => {
                     </div>
                   </div>
 
-                  <div className={classes.section}>
-                    <Typography variant="body2" color="textSecondary">
-                      {" "}
-                      <i> {listing.tags.map((tag) => `#${tag}, `)}</i>{" "}
-                    </Typography>
-                  </div>
-
                   {userIn?.result?._id === listing?.creator && (
                     <Toolbar className={classes.section}>
                       <Button

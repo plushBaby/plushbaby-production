@@ -34,7 +34,6 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
     category: loadedListing ? loadedListing.category : "",
     condition: loadedListing ? loadedListing.condition : "",
     description: loadedListing ? loadedListing.description : "",
-    tags: loadedListing ? loadedListing.tags : "",
     selectedFile: loadedListing ? loadedListing.selectedFile : "",
   });
 
