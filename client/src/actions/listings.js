@@ -59,7 +59,6 @@ export const commentListing = (value, id) => async (dispatch) => {
   try {
     const { data } = await api.commentListing(value, id);
     dispatch({ type: COMMENT, payload: data });
-    return data.comments;
   } catch (error) {
     console.log(error);
   }

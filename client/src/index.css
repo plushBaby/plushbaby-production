@@ -5,6 +5,10 @@
     font-family: 'Baloo 2', cursive;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background: white;

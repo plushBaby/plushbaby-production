@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useStyles from "./ListingStyles";
 import {
   Button,
@@ -16,6 +16,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 const CommentSection = ({ listing }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const [comments, setComments] = useState(listing?.comments);
   const [comment, setComment] = useState("");
@@ -24,8 +25,8 @@ const CommentSection = ({ listing }) => {
   );
 
   function forceUpdate() {
-    this.setState({});
-    window.location.reload(true);
+    setComment("");
+    navigate("/");
   }
 
   useEffect(() => {
@@ -35,15 +36,14 @@ const CommentSection = ({ listing }) => {
   const handleSubmit = async () => {
     const userComment = `${userIn?.result?.name} : ${comment}`;
     const newComment = await dispatch(commentListing(userComment, listing._id));
-    console.log("submit button clicked!");
     setComments(newComment);
-    setComment("");
+    alert("Your comment has been posted");
     forceUpdate();
   };
 
   const confirmDelete = () => {
     if (window.confirm("Do you want to delete this comment?") === true) {
-        //do something
+      //do something
     }
   };
 
@@ -62,33 +62,37 @@ const CommentSection = ({ listing }) => {
 
   return (
     <div>
-      {comments.map((comment) => (
-        <div className={classes.container}>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar className={classes.avatar}>
-                {getCommentUsername(comment).charAt(0)}{" "}
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary={getCommentUsername(comment)}
-              secondary={getCommentBody(comment)}
-            />
-            {userIn?.result?.name === getCommentUsername(comment) && (
-              <Button
-                className={classes.icons}
-                onClick={confirmDelete}
-                color="secondary"
-                variant="outlined"
-              >
-                {" "}
-                <DeleteIcon fontSize="small" /> Delete{" "}
-              </Button>
-            )}
-          </ListItem>
-        </div>
-      ))}
 
+      {comments !== undefined ? (
+        <>
+          {comments.map((comment) => (
+            <div className={classes.container}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar className={classes.avatar}>
+                    {getCommentUsername(comment).charAt(0)}{" "}
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={getCommentUsername(comment)}
+                  secondary={getCommentBody(comment)}
+                />
+                {userIn?.result?.name === getCommentUsername(comment) && (
+                  <Button
+                    className={classes.icons}
+                    onClick={confirmDelete}
+                    color="secondary"
+                    variant="outlined"
+                  >
+                    {" "}
+                    <DeleteIcon fontSize="small" /> Delete{" "}
+                  </Button>
+                )}
+              </ListItem>
+            </div>
+          ))}
+        </>
+      ) : (<></>)}
       <div>
         <TextField
           name="comment"

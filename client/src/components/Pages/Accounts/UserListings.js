@@ -7,19 +7,25 @@ import { fetchAllListings } from "../../../actions/listings";
 import Listing from "../../Listings/Listing/Listing";
 
 const UserListings = () => {
-  const [currentId, setCurrentId] = useState(null);
-  const [currentCategory, setCategory] = useState(null);
-  const listings = useSelector((state) => state.listings);
-  const [userIn, setUserIn] = useState(
-    JSON.parse(localStorage.getItem("accountProfile"))
-  );
   const classes = useStyles();
   const dispatch = useDispatch();
   const location = useLocation();
+  const [currentId, setCurrentId] = useState(null);
+  const [currentCategory, setCategory] = useState(null);
+  // const listings = useSelector((state) => state.listings);
+  const [userIn, setUserIn] = useState(
+    JSON.parse(localStorage.getItem("accountProfile"))
+  );
 
   useEffect(() => {
     setUserIn(JSON.parse(localStorage.getItem("accountProfile")));
   }, [location]);
+
+  const listings = useSelector((state) =>
+    currentId
+      ? state.listings.find((listing) => listing.creator === userIn.result._id)
+      : null
+  );
 
   useEffect(() => {
     dispatch(fetchAllListings());

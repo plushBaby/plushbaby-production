@@ -194,6 +194,7 @@ const DetailedPage = () => {
                         className={classes.icons}
                         color="secondary"
                         variant="outlined"
+                        href="#edit-form"
                       >
                         {" "}
                         <EditIcon fontSize="small" /> Edit this listing{" "}
@@ -209,7 +210,7 @@ const DetailedPage = () => {
                 <CommentSection listing={listing} />
               </div>
               {userIn?.result?._id === listing?.creator && (
-                <Form loadedListing={listing} />
+                <Form  loadedListing={listing} />
               )}
             </>
           ) : (

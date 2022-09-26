@@ -26,6 +26,9 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
     fontSize: "1.5em",
     fontWeight: 300,
+    "&:hover": {
+      color: "#007c90",
+    }
   },
   toolbar: {
     display: "flex",

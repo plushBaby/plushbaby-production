@@ -17,7 +17,7 @@ const FLyoutNav = ({ isopen, toggleFlyout }) => {
   const logOut = () => {
     dispatch({ type: "LOGOUT" });
     setUserIn(null);
-    navigate("/listings");
+    navigate("/");
   };
 
   useEffect(() => {

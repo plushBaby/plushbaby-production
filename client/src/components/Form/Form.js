@@ -9,11 +9,13 @@ import {
   Select,
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import FileBase from "react-file-base64";
 import useStyles from "./FormStyles";
 import { createAListing, updateListing } from "../../actions/listings";
 
 const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
+  const navigate = useNavigate();
   const listing = useSelector((state) =>
     currentId
       ? state.listings.find((listing) => listing._id === loadedListing._id)
@@ -64,7 +66,8 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
           name: userIn?.result?.name,
         })
       );
-      window.location.reload(true);
+      window.alert("Your listing has been updated");
+      navigate("/");
     }
 
     clear();
@@ -82,6 +85,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
     <form
       autoComplete="off"
       noValidate
+      id="edit-form"
       className={`
                 ${classes.root}
                 ${classes.form}
