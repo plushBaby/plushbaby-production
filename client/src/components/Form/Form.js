@@ -68,6 +68,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
       );
       window.alert("Your listing has been updated");
       navigate("/");
+      window.location.reload(true);
     }
 
     clear();
@@ -85,14 +86,13 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
     <form
       autoComplete="off"
       noValidate
-      id="edit-form"
       className={`
                 ${classes.root}
                 ${classes.form}
             `}
       onSubmit={handleSubmit}
     >
-      <Typography variant="h4">
+      <Typography variant="h4" id="edit-form">
         {" "}
         {loadedListing ? "Editing this" : "Start a "} listing{" "}
       </Typography>
