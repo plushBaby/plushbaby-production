@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grow, Grid } from "@material-ui/core";
+import { Container, Grow, Grid, CircularProgress } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import useStyles from "../Home/HomeStyles";
@@ -12,7 +12,7 @@ const UserListings = () => {
   const location = useLocation();
   const [currentId, setCurrentId] = useState(null);
   const [currentCategory, setCategory] = useState(null);
-  // const listings = useSelector((state) => state.listings);
+  let listings = useSelector((state) => state.listings);
   const [userIn, setUserIn] = useState(
     JSON.parse(localStorage.getItem("accountProfile"))
   );
@@ -21,30 +21,36 @@ const UserListings = () => {
     setUserIn(JSON.parse(localStorage.getItem("accountProfile")));
   }, [location]);
 
-  const listings = useSelector((state) =>
-    currentId
-      ? state.listings.find((listing) => listing.creator === userIn.result._id)
-      : null
-  );
 
   useEffect(() => {
     dispatch(fetchAllListings());
   }, [currentId, dispatch]);
+
+  if (!Array.isArray(listings)) {
+    listings = Object.keys(listings)
+  }
 
   const userListings = listings.map((listing) => {
     if (!listing.creator) {
       return null;
     } else {
       if (userIn.result._id === listing.creator) {
-        console.log(userIn.result._id);
-        return (
-          <Grid key={listing._id} item xs={6} sm={4} md={3} lg={2}>
-            <Listing
-              listing={listing}
-              setCategory={setCategory}
-              setCurrentId={setCurrentId}
-            />
-          </Grid>
+        return !listings?.length ? (
+          <>
+            <Container align="center">
+              <CircularProgress />
+            </Container>
+          </>
+        ) : (
+          <>
+            <Grid key={listing._id} item xs={6} sm={4} md={3} lg={2}>
+              <Listing
+                listing={listing}
+                setCategory={setCategory}
+                setCurrentId={setCurrentId}
+              />
+            </Grid>
+          </>
         );
       }
     }
