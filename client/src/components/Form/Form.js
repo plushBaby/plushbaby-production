@@ -57,6 +57,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
     if (!loadedListing) {
       dispatch(createAListing({ ...listingData, name: userIn?.result?.name }));
       window.alert("Your new listing has been posted");
+      clear();
       window.location.reload(true);
     } else {
       dispatch(
@@ -69,7 +70,6 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
       clear();
       navigate("/");
     }
-    clear();
   };
 
   if (!userIn?.result?.name) {

@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
   },
 
   cardContent: {
-    height: "80px",
+    height: "60px",
     overflow: "hidden",
   },
   cardActions: {

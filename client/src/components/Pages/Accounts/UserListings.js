@@ -21,7 +21,6 @@ const UserListings = () => {
     setUserIn(JSON.parse(localStorage.getItem("accountProfile")));
   }, [location]);
 
-
   useEffect(() => {
     dispatch(fetchAllListings());
   }, [currentId, dispatch]);
@@ -35,31 +34,29 @@ const UserListings = () => {
       return null;
     } else {
       if (userIn.result._id === listing.creator) {
-        return !listings?.length ? (
-          <>
-            <Container align="center">
-              <CircularProgress />
-            </Container>
-          </>
-        ) : (
-          <>
-            <Grid key={listing._id} item xs={6} sm={4} md={3} lg={2}>
-              <Listing
-                listing={listing}
-                setCategory={setCategory}
-                setCurrentId={setCurrentId}
-              />
-            </Grid>
-          </>
-        );
+        return (
+          <Grid key={listing._id} item xs={6} sm={4} md={3} lg={2}>
+            <Listing
+              listing={listing}
+              setCategory={setCategory}
+              setCurrentId={setCurrentId}
+            />
+          </Grid>
+        )
       }
     }
     return null;
   });
 
-  return (
-    <Grow in>
-      <>
+  return !listings?.length ? (
+    <>
+      <Container align="center">
+        <CircularProgress className={classes.loading} />
+      </Container>
+    </>
+    ) : (
+    <>
+      <Grow in>
         <Container className={classes.container}>
           <h1> My listings </h1>
           <Grid container spacing={2}>
@@ -67,8 +64,8 @@ const UserListings = () => {
           </Grid>
           <h3 align="center"> End of Listings </h3>
         </Container>
-      </>
-    </Grow>
+      </Grow>
+    </>
   );
 };
 
