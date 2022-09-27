@@ -40,8 +40,6 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
   });
 
   const clear = () => {
-    setCurrentId(null);
-    setCategory(null);
     setListingData({
       title: "",
       subtitle: "",
@@ -51,6 +49,9 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
       description: "",
       selectedFile: "",
     });
+    navigate("/");
+    window.location.reload(true);
+    
   };
 
   const handleSubmit = async (event) => {
@@ -58,7 +59,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
     if (!loadedListing) {
       dispatch(createAListing({ ...listingData, name: userIn?.result?.name }));
       window.alert("Your new listing has been posted.");
-      window.location.reload(true);
+      clear();
     } else {
       dispatch(
         updateListing(loadedListing._id, {
@@ -67,11 +68,8 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
         })
       );
       window.alert("Your listing has been updated");
-      navigate("/");
-      window.location.reload(true);
+      clear();
     }
-
-    clear();
   };
 
   if (!userIn?.result?.name) {
