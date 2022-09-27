@@ -49,8 +49,6 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
       description: "",
       selectedFile: "",
     });
-    navigate("/");
-    window.location.reload(true);
     
   };
 
@@ -58,8 +56,8 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
     event.preventDefault();
     if (!loadedListing) {
       dispatch(createAListing({ ...listingData, name: userIn?.result?.name }));
-      window.alert("Your new listing has been posted.");
-      clear();
+      window.alert("Your new listing has been posted");
+      window.location.reload(true);
     } else {
       dispatch(
         updateListing(loadedListing._id, {
@@ -69,7 +67,9 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
       );
       window.alert("Your listing has been updated");
       clear();
+      navigate("/");
     }
+    clear();
   };
 
   if (!userIn?.result?.name) {
