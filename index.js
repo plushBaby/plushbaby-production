@@ -39,11 +39,11 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  // .then(() =>
-  //   app.listen(PORT, () =>
-  //     console.log(
-  //       `production stage is connected to MongoDB & is running on Port: http://localhost:${PORT}`
-  //     )
-  //   )
-  // )
+  .then(() =>
+    app.listen(PORT, () =>
+      console.log(
+        `production stage is connected to MongoDB & is running on Port: http://localhost:${PORT}`
+      )
+    )
+  )
   .catch((error) => console.log(`${error} Could not connect to MongoDB`));
