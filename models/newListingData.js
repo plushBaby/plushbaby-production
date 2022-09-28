@@ -16,6 +16,6 @@ const newListingModel = mongoose.Schema({
   createdAt: { type: Date, default: new Date() },
 });
 
-const newListingData  = mongoose.model('newListingData', newListingModel );
+const newListingDatas  = mongoose.model('newListingDatas', newListingModel );
 
-export default newListingData ;
+export default newListingDatas ;

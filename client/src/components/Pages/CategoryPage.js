@@ -8,7 +8,7 @@ import { fetchAllListings } from "../../actions/listings";
 import Listing from "../Listings/Listing/Listing";
 
 const CategoryPage = () => {
-  const [curretId, setCurrentId] = useState(null);
+  const [currentId, setCurrentId] = useState(null);
   const [currentCategory, setCategory] = useState(null);
   const listings = useSelector((state) => state.listings);
   const classes = useStyles();
