@@ -174,7 +174,7 @@ const DetailedPage = () => {
                       
                       <Typography variant="body2">
                         
-                        <b> Listed: </b> {moment(listing.createdAt).fromNow()}
+                        <b> Updated: </b> {moment(listing.createdAt).fromNow()}
                       </Typography>
                     </div>
                   </div>
