@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import newListingData from "../models/newListingData.js";
+import listingModelData from "../models/listingModelData.js";
 
 
 const router = express.Router();
@@ -8,7 +8,7 @@ const router = express.Router();
 export const fetchOneListing = async (req, res) => {
   const { id } = req.params;
   try {
-    const listing = await newListingData.findById(id);
+    const listing = await listingModelData.findById(id);
     res.status(200).json(listing);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -17,7 +17,7 @@ export const fetchOneListing = async (req, res) => {
 
 export const fetchAllListings = async (req, res) => {
   try {
-    const listings = await newListingData.find();
+    const listings = await listingModelData.find();
     res.status(200).json(listings);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -26,7 +26,7 @@ export const fetchAllListings = async (req, res) => {
 
 export const createAListing = async (req, res) => {
   const listing = req.body;
-  const newlistingModelData = new newListingData({
+  const newlistingModelData = new listingModelData({
     ...listing,
     creator: req.userId,
     createdAt: new Date().toISOString(),
@@ -45,7 +45,7 @@ export const updateListing = async (req, res) => {
   const listing = req.body;
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(404).send(`No listing with the id: ${_id}`);
-  const updateListing = await newListingData.findByIdAndUpdate(
+  const updateListing = await listingModelData.findByIdAndUpdate(
     _id,
     { ...listing, _id },
     { new: true }
@@ -59,7 +59,7 @@ export const deleteListing = async (req, res) => {
     return res.status(404).send(`No listing with the id: ${id}`);
 
   try {
-    await newListingData.findByIdAndRemove(id);
+    await listingModelData.findByIdAndRemove(id);
     res.json({ message: "Listing deleted" });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -71,9 +71,9 @@ export const commentListing = async (req, res) => {
   const { value } = req.body;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No listing with the id: ${id}`);
-  const listing = await newListingData.findById(id);
+  const listing = await listingModelData.findById(id);
   listing.comments.push(value);
-  const updateListing = await newListingData.findByIdAndUpdate(id, listing, {
+  const updateListing = await listingModelData.findByIdAndUpdate(id, listing, {
     new: true,
   });
   res.json(updateListing);
