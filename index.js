@@ -31,7 +31,7 @@ if (
 }
 
 const DATABASE_URL =
-  "mongodb+srv://plushbaby:yoobee2022@cluster0.xw1rqum.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://VyNguyenYooBee2022:VyYooBee2022@cluster0.yuafpp7.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 3001;
 
 mongoose
