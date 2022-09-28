@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 
-const listingModel = mongoose.Schema({
+const newListingModel = mongoose.Schema({
   title: String,
   subtitle: String,
   price: Number,
@@ -16,6 +16,6 @@ const listingModel = mongoose.Schema({
   createdAt: { type: Date, default: new Date() },
 });
 
-const listingModelData = mongoose.model('listingModelData', listingModel );
+const newListingData  = mongoose.model('newListingData', newListingModel );
 
-export default listingModelData ;
+export default newListingData ;

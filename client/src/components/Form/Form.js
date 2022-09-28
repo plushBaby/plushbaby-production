@@ -36,6 +36,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
     category: loadedListing ? loadedListing.category : "",
     condition: loadedListing ? loadedListing.condition : "",
     description: loadedListing ? loadedListing.description : "",
+    tags: loadedListing ? loadedListing.tags : "",
     selectedFile: loadedListing ? loadedListing.selectedFile : "",
   });
 
@@ -48,6 +49,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
       category: "",
       description: "",
       selectedFile: "",
+      tags: "",
     });
     
   };
@@ -137,6 +139,7 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
           setListingData({ ...listingData, condition: event.target.value })
         }
       />
+
       <TextField
         name="description"
         variant="outlined"
@@ -147,6 +150,16 @@ const Form = ({ currentId, setCurrentId, loadedListing, setCategory }) => {
         value={listingData.description}
         onChange={(event) =>
           setListingData({ ...listingData, description: event.target.value })
+        }
+      />
+      <TextField
+        name="tags"
+        variant="outlined"
+        label="Tags"
+        fullWidth
+        value={listingData.tags}
+        onChange={(event) =>
+          setListingData({ ...listingData, tags: event.target.value })
         }
       />
       <FormControl fullWidth variant="outlined" className={classes.formControl}>
